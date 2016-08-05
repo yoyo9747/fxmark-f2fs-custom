@@ -88,7 +88,7 @@ class Plotter(object):
                         shell=True)
 
     def _plot_header(self):
-        n_unit = len(self.config["media"]) * len(self.config["bench"])
+        n_unit = len(self.config["media"]) * len(self.config["bench"]) * 2
         n_col = min(n_unit, int(self.PAPER_WIDTH / self.UNIT_WIDTH))
         n_row = math.ceil(float(n_unit) / float(n_col))
         print("set term pdfcairo size %sin,%sin font \',10\'" %

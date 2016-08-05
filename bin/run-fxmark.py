@@ -25,7 +25,8 @@ def catch_ctrl_C(sig, frame):
 class Runner(object):
     # media path
     LOOPDEV = "/dev/loopX"
-    NVMEDEV = "/dev/nvme0n1pX"
+    NVMEDEV = "/dev/nvme0n1p1"
+    #NVMEDEV = "/dev/pmem0"
     HDDDEV  = "/dev/sdX"
     SSDDEV  = "/dev/sdY"
 
@@ -46,14 +47,15 @@ class Runner(object):
 
         # bench config
         self.DISK_SIZE     = "32G"
-        self.DURATION      = 30 # seconds
+        self.DURATION      = 5 # seconds
         self.DIRECTIOS     = ["bufferedio", "directio"]  # enable directio except tmpfs -> nodirectio 
         self.MEDIA_TYPES   = ["ssd", "hdd", "nvme", "mem"]
         self.FS_TYPES      = [
 #        self.FS_TYPES      = ["tmpfs",
-                              "ext4", "ext4_no_jnl",
+                              "ext4", #"ext4_no_jnl",
                               "xfs",
-                              "btrfs", "f2fs",
+                              "btrfs",
+                              "f2fs",
                               # "jfs", "reiserfs", "ext2", "ext3",
         ]
         self.BENCH_TYPES   = [
@@ -62,28 +64,28 @@ class Runner(object):
             "DWOL",
             "DWOM",
             "DWSL",
-            "MWRL",
-            "MWRM",
-            "MWCL",
-            "MWCM",
-            "MWUM",
-            "MWUL",
+           # "MWRL",
+           # "MWRM",
+           # "MWCL",
+           # "MWCM",
+           # "MWUM",
+           # "MWUL",
             "DWTL",
 
             # filebench
-            "filebench_varmail",
-            "filebench_oltp",
-            "filebench_fileserver",
+            #"filebench_varmail",
+            #"filebench_oltp",
+            #"filebench_fileserver",
 
             # dbench
-            "dbench_client",
+            #"dbench_client",
 
             # read/read
-            "MRPL",
-            "MRPM",
-            "MRPH",
-            "MRDM",
-            "MRDL",
+           # "MRPL",
+           # "MRPM",
+           # "MRPH",
+           # "MRDM",
+           # "MRDL",
             "DRBH",
             "DRBM",
             "DRBL",
@@ -482,16 +484,6 @@ def confirm_media_path():
     print("%" * 80)
     print("%% WARNING! WARNING! WARNING! WARNING! WARNING!")
     print("%" * 80)
-    yn = input("All data in %s, %s, %s and %s will be deleted. Is it ok? [Y,N]: "
-            % (Runner.HDDDEV, Runner.SSDDEV, Runner.NVMEDEV, Runner.LOOPDEV))
-    if yn != "Y":
-        print("Please, check Runner.LOOPDEV and Runner.NVMEDEV")
-        exit(1)
-    yn = input("Are you sure? [Y,N]: ")
-    if yn != "Y":
-        print("Please, check Runner.LOOPDEV and Runner.NVMEDEV")
-        exit(1)
-    print("%" * 80)
     print("\n\n")
 
 if __name__ == "__main__":
@@ -517,7 +509,10 @@ if __name__ == "__main__":
     run_config = [
         (Runner.CORE_FINE_GRAIN,
          PerfMon.LEVEL_LOW,
-         ("mem", "*", "DWOL", "80", "directio")),
+         ("nvme", "*", "*", "*", "*")),
+        # ("nvme", "f2fs", "DWOM", "8", "*")),
+        # ("nvme", "f2fs", "DWAL", "8", "bufferedio")),
+        #("nvme", "*", "DWAL", "8", "*")),
         # ("mem", "tmpfs", "filebench_varmail", "32", "directio")),
         # (Runner.CORE_COARSE_GRAIN,
         #  PerfMon.LEVEL_PERF_RECORD,
