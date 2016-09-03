@@ -26,7 +26,7 @@ class Runner(object):
     # media path
     LOOPDEV = "/dev/loopX"
     NVMEDEV = "/dev/nvme0n1p1"
-    #NVMEDEV = "/dev/pmem0"
+    RAMDISKDEV = "/dev/md0"
     HDDDEV  = "/dev/sdX"
     SSDDEV  = "/dev/sdY"
 
@@ -46,10 +46,10 @@ class Runner(object):
         self.DEBUG_OUT     = False
 
         # bench config
-        self.DISK_SIZE     = "32G"
-        self.DURATION      = 5 # seconds
+        self.DISK_SIZE     = "64G"
+        self.DURATION      = 4 # seconds
         self.DIRECTIOS     = ["bufferedio", "directio"]  # enable directio except tmpfs -> nodirectio 
-        self.MEDIA_TYPES   = ["ssd", "hdd", "nvme", "mem"]
+        self.MEDIA_TYPES   = ["ssd", "hdd", "ramdisk", "nvme", "mem"]
         self.FS_TYPES      = [
 #        self.FS_TYPES      = ["tmpfs",
                               "ext4", #"ext4_no_jnl",
@@ -135,6 +135,7 @@ class Runner(object):
         # media config
         self.HOWTO_INIT_MEDIA = {
             "mem":self.init_mem_disk,
+            "ramdisk":self.init_ram_disk,
             "nvme":self.init_nvme_disk,
             "ssd":self.init_ssd_disk,
             "hdd":self.init_hdd_disk,
@@ -299,6 +300,9 @@ class Runner(object):
     def deinit_mem_disk(self):
         self.unset_loopdev()
         self.umount(self.tmp_path)
+
+    def init_ram_disk(self):
+        return (os.path.exists(Runner.RAMDISKDEV), Runner.RAMDISKDEV)
 
     def init_nvme_disk(self):
         return (os.path.exists(Runner.NVMEDEV), Runner.NVMEDEV)
@@ -509,10 +513,13 @@ if __name__ == "__main__":
     run_config = [
         (Runner.CORE_FINE_GRAIN,
          PerfMon.LEVEL_LOW,
+         ("ramdisk", "*", "*", "*", "*")),
+        (Runner.CORE_FINE_GRAIN,
+         PerfMon.LEVEL_LOW,
          ("nvme", "*", "*", "*", "*")),
         # ("nvme", "f2fs", "DWOM", "8", "*")),
         # ("nvme", "f2fs", "DWAL", "8", "bufferedio")),
-        #("nvme", "*", "DWAL", "8", "*")),
+       # ("nvme", "*", "DWTL", "16", "*")),
         # ("mem", "tmpfs", "filebench_varmail", "32", "directio")),
         # (Runner.CORE_COARSE_GRAIN,
         #  PerfMon.LEVEL_PERF_RECORD,
