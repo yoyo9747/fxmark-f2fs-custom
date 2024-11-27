@@ -1,0 +1,613 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/yoyo/fxmark-f2fs/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+$(BIN)/%	Makefile	/^$(BIN)\/%: $(SRC)\/%.c $(DEPS) $(SRC)\/cpupol.h $(BIN)\/cpupol.py$/;"	t
+$(BIN)/cpupol.py	Makefile	/^$(BIN)\/cpupol.py: $(SRC)\/cpuinfo $(BIN)\/cpu-sequences $(BIN)\/gen_corepolicy$/;"	t
+$(SRC)/cpuinfo	Makefile	/^$(SRC)\/cpuinfo:$/;"	t
+$(SRC)/cpupol.h	Makefile	/^$(SRC)\/cpupol.h: $(SRC)\/cpuinfo $(BIN)\/cpu-sequences $(BIN)\/gen_corepolicy$/;"	t
+Authors	README.md	/^Authors$/;"	s	chapter:FxMark: Filesystem Multicore Scalability Benchmark
+BENCH_ARG_BYTES	src/bench.h	/^#define BENCH_ARG_BYTES /;"	d
+BENCH_PROFILE_CMD_BYTES	src/bench.h	/^#define BENCH_PROFILE_CMD_BYTES /;"	d
+BG_WRITER_BASE	src/MRPM_bg.c	/^#define BG_WRITER_BASE /;"	d	file:
+BIN	Makefile	/^BIN = bin$/;"	m
+BINS	Makefile	/^BINS	= $(BIN)\/fxmark$/;"	m
+BRANCHING_OUT_FACTOR	src/MRPH.c	/^#define BRANCHING_OUT_FACTOR /;"	d	file:
+BRANCHING_OUT_FACTOR	src/MRPM.c	/^#define BRANCHING_OUT_FACTOR /;"	d	file:
+BRANCHING_OUT_FACTOR	src/MRPM_bg.c	/^#define BRANCHING_OUT_FACTOR /;"	d	file:
+BUILD_VERBOSE	Makefile	/^BUILD_VERBOSE = $(V)$/;"	m
+BuildFSLockingTable	bin/fs_locking_table.py	/^class BuildFSLockingTable(object):$/;"	c
+CACHELINE_ALIGNED	src/bench.h	/^#define CACHELINE_ALIGNED /;"	d
+CACHELINE_ALIGNED	src/bench.h	/^} CACHELINE_ALIGNED;$/;"	v	typeref:struct:bench
+CACHELINE_ALIGNED	src/bench.h	/^} CACHELINE_ALIGNED;$/;"	v	typeref:struct:worker
+CACHELINE_SIZE	src/bench.h	/^#define CACHELINE_SIZE /;"	d
+CACHE_PER_CORE	bin/cpupol.py	/^CACHE_PER_CORE                = 22528$/;"	v
+CACHE_PER_CORE	bin/gen_corepolicy	/^CACHE_PER_CORE = topology_info["cache per core"]$/;"	v
+CACHE_PER_CORE	src/cpupol.h	/^const unsigned int CACHE_PER_CORE                  = 22528;$/;"	v	typeref:typename:const unsigned int
+CORE_COARSE_GRAIN	bin/run-fxmark.py	/^    CORE_COARSE_GRAIN = 1$/;"	v	class:Runner
+CORE_FINE_GRAIN	bin/run-fxmark.py	/^    CORE_FINE_GRAIN = 0$/;"	v	class:Runner
+CORE_PER_CHIP	bin/cpupol.py	/^CORE_PER_CHIP                 = 16$/;"	v
+CORE_PER_CHIP	bin/gen_corepolicy	/^CORE_PER_CHIP  = topology_info["core per chip"]$/;"	v
+CORE_PER_CHIP	src/cpupol.h	/^const unsigned int CORE_PER_CHIP                   = 16;$/;"	v	typeref:typename:const unsigned int
+CPUBase	bin/cpuinfo.py	/^class CPUBase(object):$/;"	c
+CPUPOLS	Makefile	/^CPUPOLS = $(SRC)\/cpuinfo $(SRC)\/cpupol.h $(BIN)\/cpupol.py$/;"	m
+CPU_POLICY	Makefile	/^CPU_POLICY = $(BIN)\/cpu-sequences | $(BIN)\/gen_corepolicy$/;"	m
+CPU_STAT	bin/perfmon.py	/^    CPU_STAT   = ["real", "user", "nice", "sys", "idle",$/;"	v	class:PerfMon
+CUR_DIR	bin/kibt.py	/^CUR_DIR     = os.path.abspath(os.path.dirname(__file__))$/;"	v
+CUR_DIR	bin/parser.py	/^CUR_DIR     = os.path.abspath(os.path.dirname(__file__))$/;"	v
+CUR_DIR	bin/perfmon.py	/^CUR_DIR     = os.path.abspath(os.path.dirname(__file__))$/;"	v
+CUR_DIR	bin/perfstdio.py	/^CUR_DIR = os.path.abspath(os.path.dirname(__file__))$/;"	v
+CUR_DIR	bin/plotter.py	/^CUR_DIR     = os.path.abspath(os.path.dirname(__file__))$/;"	v
+CUR_DIR	bin/run-dbench.py	/^CUR_DIR = os.path.abspath(os.path.dirname(__file__))$/;"	v
+CUR_DIR	bin/run-filebench.py	/^CUR_DIR = os.path.abspath(os.path.dirname(__file__))$/;"	v
+CUR_DIR	bin/run-fxmark.py	/^CUR_DIR = os.path.abspath(os.path.dirname(__file__))$/;"	v
+DBench	bin/run-dbench.py	/^class DBench(object):$/;"	c
+DEPS	Makefile	/^DEPS	= $(wildcard $(SRC)\/*.h) $(LIBS) $(TC)$/;"	m
+DESC	bin/cpuinfo.py	/^    DESC = '[1] Intel® 64 and IA-32 Architectures Optimization Reference Manual.'$/;"	v	class:NehalemPrefetchSettings
+DOC	bin/cpuinfo.py	/^    DOC = {'dcu_streamer':$/;"	v	class:NehalemPrefetchSettings
+FIELDS	bin/set-cpus	/^FIELDS = ["processor", "socket", "coreid", "thread", "apicid", "node"]$/;"	v
+FX_OPT_MAX_PRIVATE	src/fxmark.h	/^#define FX_OPT_MAX_PRIVATE /;"	d
+FileBench	bin/run-filebench.py	/^class FileBench(object):$/;"	c
+FxMark: Filesystem Multicore Scalability Benchmark	README.md	/^FxMark: Filesystem Multicore Scalability Benchmark$/;"	c
+HDDDEV	bin/run-fxmark.py	/^    HDDDEV = "\/dev\/sdX"$/;"	v	class:Runner
+HERE	src/bench.h	/^#define HERE(/;"	d
+How to run	README.md	/^How to run$/;"	s	chapter:FxMark: Filesystem Multicore Scalability Benchmark
+INITCPUINFO	bin/cpuinfo.py	/^INITCPUINFO = "\/var\/run\/initcpuinfo"$/;"	v
+Install & build	README.md	/^Install & build$/;"	s	chapter:FxMark: Filesystem Multicore Scalability Benchmark
+KernelBackTrace	bin/kibt.py	/^class KernelBackTrace(object):$/;"	c
+LEVEL_LOW	bin/perfmon.py	/^    LEVEL_LOW                     = 0$/;"	v	class:PerfMon
+LEVEL_PERF_LOCK	bin/perfmon.py	/^    LEVEL_PERF_LOCK               = 999 # Well, it is mostly useless.$/;"	v	class:PerfMon
+LEVEL_PERF_PROBE_SLEEP_LOCK	bin/perfmon.py	/^    LEVEL_PERF_PROBE_SLEEP_LOCK   = 998 # Well, it it not useful for fxmark.$/;"	v	class:PerfMon
+LEVEL_PERF_PROBE_SLEEP_LOCK_D	bin/perfmon.py	/^    LEVEL_PERF_PROBE_SLEEP_LOCK_D = 2$/;"	v	class:PerfMon
+LEVEL_PERF_RECORD	bin/perfmon.py	/^    LEVEL_PERF_RECORD             = 1$/;"	v	class:PerfMon
+LEVEL_PERF_STAT	bin/perfmon.py	/^    LEVEL_PERF_STAT               = 3$/;"	v	class:PerfMon
+LIBS	Makefile	/^LIBS    = $(SRC)\/bench.c $(SRC)\/util.c$/;"	m
+LOOPDEV	bin/run-fxmark.py	/^    LOOPDEV = "\/dev\/loopX"$/;"	v	class:Runner
+MODEL_NAME	bin/cpupol.py	/^MODEL_NAME                    = "Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz"$/;"	v
+MODEL_NAME	bin/gen_corepolicy	/^MODEL_NAME     = topology_info["model name"]$/;"	v
+MODEL_NAME	src/cpupol.h	/^const char *MODEL_NAME                             = "Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz"/;"	v	typeref:typename:const char *
+Macro benchmarks	README.md	/^Macro benchmarks$/;"	s	chapter:FxMark: Filesystem Multicore Scalability Benchmark
+NAME	bin/cpuinfo.py	/^    NAME = 'Nehalem'$/;"	v	class:NehalemCPU
+NAME	bin/cpuinfo.py	/^    NAME = 'Unknown CPU'$/;"	v	class:UnknownCPU
+NVMEDEV	bin/run-fxmark.py	/^    NVMEDEV = "\/dev\/nvme0n1"$/;"	v	class:Runner
+NehalemCPU	bin/cpuinfo.py	/^class NehalemCPU(CPUBase):$/;"	c
+NehalemPrefetchSettings	bin/cpuinfo.py	/^class NehalemPrefetchSettings($/;"	c
+PAGE_SIZE	src/bench.h	/^#define PAGE_SIZE /;"	d
+PATH_DEPTH	src/MRPH.c	/^#define PATH_DEPTH /;"	d	file:
+PATH_DEPTH	src/MRPM.c	/^#define PATH_DEPTH /;"	d	file:
+PATH_DEPTH	src/MRPM_bg.c	/^#define PATH_DEPTH /;"	d	file:
+PERF_SAMPLE_RATE	bin/perfmon.py	/^    PERF_SAMPLE_RATE              = 1000$/;"	v	class:PerfMon
+PERF_STR	bin/run-dbench.py	/^    PERF_STR = "Throughput"$/;"	v	class:DBench
+PERF_STR	bin/run-filebench.py	/^    PERF_STR = "IO Summary: "$/;"	v	class:FileBench
+PHYSICAL_CHIPS	bin/cpupol.py	/^PHYSICAL_CHIPS                = 2$/;"	v
+PHYSICAL_CHIPS	bin/gen_corepolicy	/^PHYSICAL_CHIPS = topology_info["physical chips"]$/;"	v
+PHYSICAL_CHIPS	src/cpupol.h	/^const unsigned int PHYSICAL_CHIPS                  = 2;$/;"	v	typeref:typename:const unsigned int
+PREFETCH_SETTINGS	bin/cpuinfo.py	/^    PREFETCH_SETTINGS = NehalemPrefetchSettings$/;"	v	class:NehalemCPU
+PREFETCH_SETTINGS	bin/cpuinfo.py	/^    PREFETCH_SETTINGS = None$/;"	v	class:CPUBase
+PRE_SCRIPT	bin/run-filebench.py	/^    PRE_SCRIPT = os.path.normpath(os.path.join(CUR_DIR, "turnoff-aslr"))$/;"	v	class:FileBench
+PRIVATE_REGION_PAGE_NUM	src/DRBM.c	/^#define PRIVATE_REGION_PAGE_NUM /;"	d	file:
+PRIVATE_REGION_PAGE_NUM	src/DRBM_bg.c	/^#define PRIVATE_REGION_PAGE_NUM /;"	d	file:
+PRIVATE_REGION_PAGE_NUM	src/DWOM.c	/^#define PRIVATE_REGION_PAGE_NUM /;"	d	file:
+PRIVATE_REGION_SIZE	src/DRBM.c	/^#define PRIVATE_REGION_SIZE /;"	d	file:
+PRIVATE_REGION_SIZE	src/DRBM_bg.c	/^#define PRIVATE_REGION_SIZE /;"	d	file:
+PRIVATE_REGION_SIZE	src/DWOM.c	/^#define PRIVATE_REGION_SIZE /;"	d	file:
+PROBE_SLEEP_LOCK	bin/perfmon.py	/^    PROBE_SLEEP_LOCK = [$/;"	v	class:PerfMon
+Parser	bin/parser.py	/^class Parser(object):$/;"	c
+PerfMon	bin/perfmon.py	/^class PerfMon(object):$/;"	c
+PerfStdio	bin/perfstdio.py	/^class PerfStdio(object):$/;"	c
+Plot results	README.md	/^Plot results$/;"	s	chapter:FxMark: Filesystem Multicore Scalability Benchmark
+Plotter	bin/plotter.py	/^class Plotter(object):$/;"	c
+Publications	README.md	/^Publications$/;"	s	chapter:FxMark: Filesystem Multicore Scalability Benchmark
+Q	Makefile	/^  Q = @$/;"	m
+Q	Makefile	/^  Q =$/;"	m
+RAMDISKDEV	bin/run-fxmark.py	/^    RAMDISKDEV = "\/dev\/md0"$/;"	v	class:Runner
+Runner	bin/run-fxmark.py	/^class Runner(object):$/;"	c
+SAMPLES	src/rdtsc.c	/^    enum { SAMPLES = 512 };$/;"	e	enum:rdtsc_overhead::__anon46205fcd0103	file:
+SC_CLK_TCK	bin/perfmon.py	/^    SC_CLK_TCK = float(os.sysconf("SC_CLK_TCK"))$/;"	v	class:PerfMon
+SMT_LEVEL	bin/cpupol.py	/^SMT_LEVEL                     = 2$/;"	v
+SMT_LEVEL	bin/gen_corepolicy	/^SMT_LEVEL      = topology_info["smt level"]$/;"	v
+SMT_LEVEL	src/cpupol.h	/^const unsigned int SMT_LEVEL                       = 2;$/;"	v	typeref:typename:const unsigned int
+SRC	Makefile	/^SRC = src$/;"	m
+SSDDEV	bin/run-fxmark.py	/^    SSDDEV = "\/dev\/sdY"$/;"	v	class:Runner
+TC	Makefile	/^TC      = $(SRC)\/MWCM.c $(SRC)\/MWCL.c \\$/;"	m
+UnknownCPU	bin/cpuinfo.py	/^class UnknownCPU(CPUBase):$/;"	c
+WORKER_MAX_PRIVATE	src/bench.h	/^#define WORKER_MAX_PRIVATE /;"	d
+WORKLOAD_DIR	bin/run-dbench.py	/^    WORKLOAD_DIR = os.path.normpath(os.path.join(CUR_DIR, "dbench-workloads"))$/;"	v	class:DBench
+WORKLOAD_DIR	bin/run-filebench.py	/^    WORKLOAD_DIR = os.path.normpath(os.path.join(CUR_DIR, "filebench-workloads"))$/;"	v	class:FileBench
+_BITS	bin/cpuinfo.py	/^    _BITS = {'mlc_streamer': 0x01, 'mlc_spatial': 0x02,$/;"	v	class:NehalemPrefetchSettings
+_LARGEFILE64_SOURCE	src/DWTL.c	/^#define _LARGEFILE64_SOURCE$/;"	d	file:
+_LARGEFILE_SOURCE	src/DWTL.c	/^#define _LARGEFILE_SOURCE$/;"	d	file:
+_MASK	bin/cpuinfo.py	/^    _MASK = ~0x0F$/;"	v	class:NehalemPrefetchSettings
+_MSR	bin/cpuinfo.py	/^    _MSR = 0x1a4$/;"	v	class:NehalemPrefetchSettings
+__BENCH_H__	src/bench.h	/^#define __BENCH_H__$/;"	d
+__FX_H__	src/fxmark.h	/^#define __FX_H__$/;"	d
+__STDC_FORMAT_MACROS	src/DRBH.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/DRBH_bg.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/DRBL.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/DRBL_bg.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/DRBM.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/DRBM_bg.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/DWAL.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/DWOL.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/DWOM.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/DWSL.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/DWTL.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MRDL.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MRDL_bg.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MRDM.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MRDM_bg.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MRPH.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MRPL.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MRPM.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MRPM_bg.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MWCL.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MWCM.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MWRL.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MWRM.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MWUL.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__STDC_FORMAT_MACROS	src/MWUM.c	/^#define __STDC_FORMAT_MACROS$/;"	d	file:
+__USE_LARGEFILE64	src/DWTL.c	/^#define __USE_LARGEFILE64$/;"	d	file:
+__UTIL_H__	src/util.h	/^#define __UTIL_H__$/;"	d
+__all__	bin/cpuinfo.py	/^__all__ = ("INITCPUINFO getCPUSet parseCpuinfo findCpuinfo expandCpuinfo "$/;"	v
+__anon46205fcd0103	src/rdtsc.c	/^    enum { SAMPLES = 512 };$/;"	g	function:rdtsc_overhead	file:
+__del__	bin/run-dbench.py	/^    def __del__(self):$/;"	m	class:DBench
+__del__	bin/run-filebench.py	/^    def __del__(self):$/;"	m	class:FileBench
+__get_cpu_num	bin/parser.py	/^def __get_cpu_num(log, fs, bc, core, sp):$/;"	f
+__get_performance	bin/parser.py	/^def __get_performance(log, fs, bc):$/;"	f
+__init__	bin/cpuinfo.py	/^    def __init__(self, cpu):$/;"	m	class:CPUBase
+__init__	bin/fs_locking_table.py	/^  def __init__(self, linux_src_dir):$/;"	m	class:BuildFSLockingTable
+__init__	bin/kibt.py	/^    def __init__(self, ksrc, filename, verbose):$/;"	m	class:KernelBackTrace
+__init__	bin/parser.py	/^    def __init__(self):$/;"	m	class:Parser
+__init__	bin/perfmon.py	/^    def __init__(self, \\$/;"	m	class:PerfMon
+__init__	bin/perfstdio.py	/^    def __init__(self, dir_name, out_dir_name = None):$/;"	m	class:PerfStdio
+__init__	bin/plotter.py	/^    def __init__(self, log_file):$/;"	m	class:Plotter
+__init__	bin/run-dbench.py	/^    def __init__(self, type_, ncore_, duration_, root_,$/;"	m	class:DBench
+__init__	bin/run-filebench.py	/^    def __init__(self, type_, ncore_, duration_, root_,$/;"	m	class:FileBench
+__init__	bin/run-fxmark.py	/^    def __init__(self,$/;"	m	class:Runner
+__openmsr	bin/cpuinfo.py	/^    def __openmsr(self, msr, mode):$/;"	m	class:CPUBase	file:
+__print_usage	bin/perfstdio.py	/^def __print_usage():$/;"	f
+__print_usage	bin/plotter.py	/^def __print_usage():$/;"	f
+_append_to_config	bin/run-filebench.py	/^    def _append_to_config(self, config_str):$/;"	m	class:FileBench
+_cpu_stat_start	bin/perfmon.py	/^    def _cpu_stat_start(self):$/;"	m	class:PerfMon
+_cpu_stat_stop	bin/perfmon.py	/^    def _cpu_stat_stop(self):$/;"	m	class:PerfMon
+_end_of_func	bin/kibt.py	/^    def _end_of_func(self, asm_line):$/;"	m	class:KernelBackTrace
+_exec_cmd	bin/perfmon.py	/^    def _exec_cmd(self, cmd, out=None):$/;"	m	class:PerfMon
+_exec_cmd	bin/perfstdio.py	/^    def _exec_cmd(self, cmd, out=subprocess.STDOUT):$/;"	m	class:PerfStdio
+_exec_cmd	bin/run-dbench.py	/^    def _exec_cmd(self, cmd, out=None):$/;"	m	class:DBench
+_exec_cmd	bin/run-filebench.py	/^    def _exec_cmd(self, cmd, out=None):$/;"	m	class:FileBench
+_gen_cmpdev_for_bench	bin/plotter.py	/^    def _gen_cmpdev_for_bench(self, ncore, bench):$/;"	m	class:Plotter
+_gen_log_info	bin/plotter.py	/^    def _gen_log_info(self):$/;"	m	class:Plotter
+_gen_pdf	bin/plotter.py	/^    def _gen_pdf(self, gp_file):$/;"	m	class:Plotter
+_get_callee	bin/kibt.py	/^    def _get_callee(self, asm_line):$/;"	m	class:KernelBackTrace
+_get_config	bin/plotter.py	/^    def _get_config(self):$/;"	m	class:Plotter
+_get_cpu_stat	bin/perfmon.py	/^    def _get_cpu_stat(self):$/;"	m	class:PerfMon
+_get_data_file	bin/plotter.py	/^        def _get_data_file(fs):$/;"	f	member:Plotter._plot_sc_data	file:
+_get_file_asm	bin/kibt.py	/^    def _get_file_asm(self):$/;"	m	class:KernelBackTrace
+_get_fs_list	bin/plotter.py	/^    def _get_fs_list(self, media, bench, iomode):$/;"	m	class:Plotter
+_get_func_asm	bin/kibt.py	/^    def _get_func_asm(self, asm_file, func):$/;"	m	class:KernelBackTrace
+_get_func_name	bin/kibt.py	/^    def _get_func_name(self, asm_line):$/;"	m	class:KernelBackTrace
+_get_inlined_backtrace	bin/kibt.py	/^    def _get_inlined_backtrace(self, func_asm, callee):$/;"	m	class:KernelBackTrace
+_get_inlined_callee_info	bin/kibt.py	/^    def _get_inlined_callee_info(self, asm_line):$/;"	m	class:KernelBackTrace
+_get_line	bin/parser.py	/^    def _get_line(self, pn):$/;"	m	class:Parser
+_get_parse_fn	bin/parser.py	/^    def _get_parse_fn(self, l):$/;"	m	class:Parser
+_get_pdf_name	bin/plotter.py	/^    def _get_pdf_name(self):$/;"	m	class:Plotter
+_get_sc_style	bin/plotter.py	/^        def _get_sc_style(fs):$/;"	f	member:Plotter._plot_sc_data	file:
+_match_config	bin/run-fxmark.py	/^    def _match_config(self, key1, key2):$/;"	m	class:Runner
+_match_key	bin/parser.py	/^    def _match_key(self, key1, key2):$/;"	m	class:Parser
+_norm_key	bin/parser.py	/^    def _norm_key(self, ks):$/;"	m	class:Parser
+_norm_str	bin/parser.py	/^    def _norm_str(self, s):$/;"	m	class:Parser
+_parse_config	bin/parser.py	/^    def _parse_config(self, l):$/;"	m	class:Parser
+_parse_data	bin/parser.py	/^    def _parse_data(self, l):$/;"	m	class:Parser
+_parse_key	bin/parser.py	/^    def _parse_key(self, l):$/;"	m	class:Parser
+_parse_schema	bin/parser.py	/^    def _parse_schema(self, l):$/;"	m	class:Parser
+_perf_lock_record_start	bin/perfmon.py	/^    def _perf_lock_record_start(self):$/;"	m	class:PerfMon
+_perf_lock_record_stop	bin/perfmon.py	/^    def _perf_lock_record_stop(self):$/;"	m	class:PerfMon
+_perf_probe_add_trace_points	bin/perfmon.py	/^    def _perf_probe_add_trace_points(self, arg0):$/;"	m	class:PerfMon
+_perf_probe_cleanup	bin/perfmon.py	/^    def _perf_probe_cleanup(self):$/;"	m	class:PerfMon
+_perf_probe_cmdline	bin/perfmon.py	/^    def _perf_probe_cmdline(self, arg0):$/;"	m	class:PerfMon
+_perf_probe_sleep_lock_start	bin/perfmon.py	/^    def _perf_probe_sleep_lock_start(self, arg0):$/;"	m	class:PerfMon
+_perf_probe_sleep_lock_stop	bin/perfmon.py	/^    def _perf_probe_sleep_lock_stop(self):$/;"	m	class:PerfMon
+_perf_record_start	bin/perfmon.py	/^    def _perf_record_start(self):$/;"	m	class:PerfMon
+_perf_record_stop	bin/perfmon.py	/^    def _perf_record_stop(self):$/;"	m	class:PerfMon
+_perf_stat_start	bin/perfmon.py	/^    def _perf_stat_start(self):$/;"	m	class:PerfMon
+_perf_stat_stop	bin/perfmon.py	/^    def _perf_stat_stop(self):$/;"	m	class:PerfMon
+_perf_stop	bin/perfmon.py	/^    def _perf_stop(self):$/;"	m	class:PerfMon
+_plot_footer	bin/plotter.py	/^    def _plot_footer(self):$/;"	m	class:Plotter
+_plot_header	bin/plotter.py	/^    def _plot_header(self):$/;"	m	class:Plotter
+_plot_sc_data	bin/plotter.py	/^    def _plot_sc_data(self, media, bench, iomode):$/;"	m	class:Plotter
+_plot_util_data	bin/plotter.py	/^    def _plot_util_data(self, media, ncore, bench, iomode):$/;"	m	class:Plotter
+_run_dbench	bin/run-dbench.py	/^    def _run_dbench(self):$/;"	m	class:DBench
+_run_filebench	bin/run-filebench.py	/^    def _run_filebench(self):$/;"	m	class:FileBench
+_sh	bin/kibt.py	/^    def _sh(self, cmd, out=None, err=None, verbose=False):$/;"	m	class:KernelBackTrace
+add_bg_worker_if_needed	bin/run-fxmark.py	/^    def add_bg_worker_if_needed(self, bench, ncore):$/;"	m	class:Runner
+all	Makefile	/^all: $(BINS) $(LIBS) $(TC)$/;"	t
+alloc_bench	src/bench.c	/^struct bench *alloc_bench(int ncpu, int nbg)$/;"	f	typeref:struct:bench *
+args	src/bench.h	/^	char args[BENCH_ARG_BYTES];$/;"	m	struct:bench	typeref:typename:char[]
+bad	bin/set-cpus	/^    bad = wantOnline - getCPUSet("possible")$/;"	v
+bad	bin/set-cpus	/^    bad = wantOnline - getCPUSet("present")$/;"	v
+barrier	src/rdtsc.h	/^#define barrier(/;"	d
+baseCPUs	bin/set-cpus	/^    baseCPUs = getCPUSet("present")$/;"	v
+baseCPUs	bin/set-cpus	/^baseCPUs = None$/;"	v
+bench	src/bench.h	/^	struct bench *bench;$/;"	m	struct:worker	typeref:struct:bench *
+bench	src/bench.h	/^struct bench {$/;"	s
+bench_desc	src/fxmark.c	/^struct bench_desc {$/;"	s	file:
+bench_operations	src/bench.h	/^struct bench_operations {$/;"	s
+bench_table	src/fxmark.c	/^static struct bench_desc bench_table[] = {$/;"	v	typeref:struct:bench_desc[]	file:
+bg_work	src/DRBH_bg.c	/^static int bg_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+bg_work	src/DRBL_bg.c	/^static int bg_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+bg_work	src/DRBM_bg.c	/^static int bg_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+bg_work	src/MRDL_bg.c	/^static int bg_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+bg_work	src/MRDM_bg.c	/^static int bg_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+bg_work	src/MRPM_bg.c	/^static int bg_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+buildInitialTable	bin/fs_locking_table.py	/^  def buildInitialTable(self):$/;"	m	class:BuildFSLockingTable
+cache_per_core	bin/cpu-sequences	/^    cache_per_core = cpu["cache size"].split()[0]$/;"	v
+catch_ctrl_C	bin/run-fxmark.py	/^def catch_ctrl_C(sig, frame):$/;"	f
+check	bin/cpuinfo.py	/^    def check(vendor, family, model):$/;"	m	class:NehalemCPU
+check	bin/cpuinfo.py	/^    def check(vendor, family, model):$/;"	m	class:UnknownCPU
+clean	Makefile	/^clean:$/;"	t
+clocks	src/bench.h	/^	volatile uint64_t clocks; $/;"	m	struct:worker	typeref:typename:volatile uint64_t
+cmd	bin/perfmon.py	/^    cmd = sys.argv[1]$/;"	v
+cmd_fn	bin/perfmon.py	/^    cmd_fn = op.get(cmd, nop)$/;"	v
+cmd_opt	src/fxmark.h	/^struct cmd_opt {$/;"	s
+confirm_media_path	bin/run-fxmark.py	/^def confirm_media_path():$/;"	f
+core_id	bin/cpu-sequences	/^    core_id = cpu["core id"]$/;"	v
+core_id_set	bin/cpu-sequences	/^core_id_set = set()$/;"	v
+core_ids	bin/cpu-sequences	/^core_ids = list(core_id_set)$/;"	v
+core_per_chip	bin/cpu-sequences	/^core_per_chip  = len(core_ids)$/;"	v
+countAllHeaders	bin/fs_locking_table.py	/^  def countAllHeaders(self):$/;"	m	class:BuildFSLockingTable
+countAllSources	bin/fs_locking_table.py	/^  def countAllSources(self):$/;"	m	class:BuildFSLockingTable
+countHeaders	bin/fs_locking_table.py	/^  def countHeaders(self, fs, lock_type):$/;"	m	class:BuildFSLockingTable
+countSources	bin/fs_locking_table.py	/^  def countSources(self, fs, lock_type):$/;"	m	class:BuildFSLockingTable
+cpu_freq	src/rdtsc.c	/^uint64_t cpu_freq(void)$/;"	f	typeref:typename:uint64_t
+cpu_freq_measured	src/rdtsc.c	/^uint64_t cpu_freq_measured(void)$/;"	f	typeref:typename:uint64_t
+cpuinfo	bin/cpu-sequences	/^cpuinfo = [dict(map(str.strip, line.split(":", 1))$/;"	v
+cpuinfo	bin/set-cpus	/^      cpuinfo = cpuinfo[options.start:options.start+options.limit]$/;"	v
+cpuinfo	bin/set-cpus	/^    cpuinfo = expandCpuinfo(findCpuinfo(options.cpuinfo.split(":"), baseCPUs))$/;"	v
+cpuinfo	bin/set-cpus	/^    cpuinfo = filter(filt, cpuinfo)$/;"	v
+cpuinfo	bin/set-cpus	/^    cpuinfo = filter(lambda cpu: cpu["processor"] in baseCPUs, cpuinfo)$/;"	v
+dbench	bin/run-dbench.py	/^    dbench = DBench(opts.type, opts.ncore, opts.duration, opts.root,$/;"	v
+deinit_mem_disk	bin/run-fxmark.py	/^    def deinit_mem_disk(self):$/;"	m	class:Runner
+desc	src/fxmark.c	/^	const char *desc;$/;"	m	struct:bench_desc	typeref:typename:const char *	file:
+directio	src/bench.h	/^	int	directio;$/;"	m	struct:bench	typeref:typename:int
+directio	src/fxmark.h	/^	int directio;$/;"	m	struct:cmd_opt	typeref:typename:int
+disable	bin/set-cpus	/^    disable = wantOffline - getCPUSet("offline")$/;"	v
+drop_caches	bin/run-fxmark.py	/^    def drop_caches(self):$/;"	m	class:Runner
+duration	src/bench.h	/^	unsigned int duration;$/;"	m	struct:bench	typeref:typename:unsigned int
+duration	src/fxmark.h	/^	int duration;$/;"	m	struct:cmd_opt	typeref:typename:int
+enable	bin/set-cpus	/^    enable = wantOnline - getCPUSet("online")$/;"	v
+epilog	bin/set-cpus	/^epilog = """$/;"	v
+exec_cmd	bin/fs_locking_table.py	/^  def exec_cmd(self, cmd, out=None):$/;"	m	class:BuildFSLockingTable
+exec_cmd	bin/run-fxmark.py	/^    def exec_cmd(self, cmd, out=None):$/;"	m	class:Runner
+expandCpuinfo	bin/cpuinfo.py	/^def expandCpuinfo(cpuinfo):$/;"	f
+fg_work	src/DRBH_bg.c	/^static int fg_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+fg_work	src/DRBL_bg.c	/^static int fg_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+fg_work	src/DRBM_bg.c	/^static int fg_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+fg_work	src/MRDL_bg.c	/^static int fg_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+fg_work	src/MRDM_bg.c	/^static int fg_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+fg_work	src/MRPM_bg.c	/^static int fg_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+field	bin/set-cpus	/^        field, perm = arg.split('@', 1)$/;"	v
+field	bin/set-cpus	/^        field, value = arg.split(op, 1)$/;"	v
+filebench	bin/run-filebench.py	/^    filebench = FileBench(opts.type, opts.ncore, opts.duration, opts.root,$/;"	v
+filters	bin/set-cpus	/^filters = []$/;"	v
+findCpuinfo	bin/cpuinfo.py	/^def findCpuinfo(paths = [INITCPUINFO, "\/proc\/cpuinfo"], needCPUs = None):$/;"	f
+find_ops	src/fxmark.c	/^static struct bench_operations *find_ops(char *type)$/;"	f	typeref:struct:bench_operations *	file:
+format_list	bin/list-cpus	/^def format_list(list, style):$/;"	f
+from_msr	bin/cpuinfo.py	/^    def from_msr(cls, val):$/;"	m	class:NehalemPrefetchSettings
+fx_opt	src/fxmark.h	/^struct fx_opt {$/;"	s
+fx_opt_bench	src/fxmark.h	/^#define fx_opt_bench(/;"	d
+fx_opt_worker	src/fxmark.h	/^#define fx_opt_worker(/;"	d
+fxmark	bin/run-fxmark.py	/^    def fxmark(self, media, fs, bench, ncore, nfg, nbg, dio):$/;"	m	class:Runner
+fxmark_cleanup	bin/run-fxmark.py	/^    def fxmark_cleanup(self):$/;"	m	class:Runner
+fxmark_env	bin/run-fxmark.py	/^    def fxmark_env(self):$/;"	m	class:Runner
+gen_cmpdev	bin/plotter.py	/^    def gen_cmpdev(self, ncore, out_dir):$/;"	m	class:Plotter
+gen_config	bin/run-fxmark.py	/^    def gen_config(self):$/;"	m	class:Runner
+gen_in_c	bin/gen_corepolicy	/^def gen_in_c(): $/;"	f
+gen_in_py	bin/gen_corepolicy	/^def gen_in_py(): $/;"	f
+gen_stdio	bin/perfstdio.py	/^    def gen_stdio(self):$/;"	m	class:PerfStdio
+gen_test_hw_thr_counts	bin/gen_corepolicy	/^def gen_test_hw_thr_counts(fine_grain):$/;"	f
+generate_config	bin/run-filebench.py	/^    def generate_config(self):$/;"	m	class:FileBench
+getCPUClass	bin/cpuinfo.py	/^def getCPUClass():$/;"	f
+getCPUSet	bin/cpuinfo.py	/^def getCPUSet(name):$/;"	f
+get_bin_type	bin/run-fxmark.py	/^    def get_bin_type(self, bench):$/;"	m	class:Runner
+get_config	bin/parser.py	/^    def get_config(self, key):$/;"	m	class:Parser
+get_config	bin/run-dbench.py	/^    def get_config(self):$/;"	m	class:DBench
+get_ncores	bin/run-fxmark.py	/^    def get_ncores(self):$/;"	m	class:Runner
+get_prefetch_settings	bin/cpuinfo.py	/^    def get_prefetch_settings(self):$/;"	m	class:NehalemCPU
+id	src/bench.h	/^	int id;$/;"	m	struct:worker	typeref:typename:int
+init_bench	src/fxmark.c	/^static void init_bench(struct bench *bench, struct cmd_opt *opt)$/;"	f	typeref:typename:void	file:
+init_hdd_disk	bin/run-fxmark.py	/^    def init_hdd_disk(self):$/;"	m	class:Runner
+init_media	bin/run-fxmark.py	/^    def init_media(self, media):$/;"	m	class:Runner
+init_mem_disk	bin/run-fxmark.py	/^    def init_mem_disk(self):$/;"	m	class:Runner
+init_nvme_disk	bin/run-fxmark.py	/^    def init_nvme_disk(self):$/;"	m	class:Runner
+init_ram_disk	bin/run-fxmark.py	/^    def init_ram_disk(self):$/;"	m	class:Runner
+init_ssd_disk	bin/run-fxmark.py	/^    def init_ssd_disk(self):$/;"	m	class:Runner
+is_bg	src/bench.h	/^	int is_bg;$/;"	m	struct:worker	typeref:typename:int
+kbt	bin/kibt.py	/^    kbt = KernelBackTrace(opts.ksrc, opts.file, opts.verbose)$/;"	v
+keep_sudo	bin/run-fxmark.py	/^    def keep_sudo(self):$/;"	m	class:Runner
+key	bin/cpu-sequences	/^    key =  physical_id + ":" + core_id$/;"	v
+list_cpus	bin/list-cpus	/^def list_cpus(order, thread=None, limit=None, style="space"):$/;"	f
+log	bin/run-fxmark.py	/^    def log(self, log):$/;"	m	class:Runner
+log_end	bin/run-fxmark.py	/^    def log_end(self):$/;"	m	class:Runner
+log_start	bin/run-fxmark.py	/^    def log_start(self):$/;"	m	class:Runner
+lt	bin/fs_locking_table.py	/^  lt = BuildFSLockingTable(sys.argv[1])$/;"	v
+main	src/fxmark.c	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int
+main	src/rdtsc.c	/^int main(int argc, char *argv[])$/;"	f	typeref:typename:int
+main_work	src/DRBH.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/DRBH_bg.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/DRBL.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/DRBL_bg.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/DRBM.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/DRBM_bg.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/DWAL.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/DWOL.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/DWOM.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/DWSL.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/DWTL.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MRDL.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MRDL_bg.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MRDM.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MRDM_bg.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MRPH.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MRPL.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MRPM.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MRPM_bg.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MWCL.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MWCM.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MWRL.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MWRM.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MWUL.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/MWUM.c	/^static int main_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+main_work	src/bench.h	/^	int (*main_work)(struct worker*);$/;"	m	struct:bench_operations	typeref:typename:int (*)(struct worker *)
+maybeInt	bin/cpuinfo.py	/^def maybeInt(s):$/;"	f
+mkdir_p	src/util.c	/^int mkdir_p(const char *path)$/;"	f	typeref:typename:int
+model_name	bin/cpu-sequences	/^model_name     = cpuinfo[0]["model name"]$/;"	v
+mods	src/MRPH.c	/^static const unsigned int mods[PATH_DEPTH] = {BRANCHING_OUT_FACTOR,$/;"	v	typeref:typename:const unsigned int[]	file:
+mods	src/MRPM.c	/^static const unsigned int mods[PATH_DEPTH] = {BRANCHING_OUT_FACTOR,$/;"	v	typeref:typename:const unsigned int[]	file:
+mods	src/MRPM_bg.c	/^static const unsigned int mods[PATH_DEPTH] = {BRANCHING_OUT_FACTOR,$/;"	v	typeref:typename:const unsigned int[]	file:
+mount	bin/run-fxmark.py	/^    def mount(self, media, fs, mnt_path):$/;"	m	class:Runner
+mount_anyfs	bin/run-fxmark.py	/^    def mount_anyfs(self, media, fs, mnt_path):$/;"	m	class:Runner
+mount_ext4_no_jnl	bin/run-fxmark.py	/^    def mount_ext4_no_jnl(self, media, fs, mnt_path):$/;"	m	class:Runner
+mount_f2fs_zns	bin/run-fxmark.py	/^    def mount_f2fs_zns(self, media, fs, mnt_path):$/;"	m	class:Runner
+mount_tmpfs	bin/run-fxmark.py	/^    def mount_tmpfs(self, media, fs, mnt_path):$/;"	m	class:Runner
+msg	bin/set-cpus	/^    msg = "Enabling %s" % strRange(sorted(wantOnline))$/;"	v
+n_blk_alloc_ops	src/DWAL.c	/^struct bench_operations n_blk_alloc_ops = {$/;"	v	typeref:struct:bench_operations
+n_blk_wrt_ops	src/DWOL.c	/^struct bench_operations n_blk_wrt_ops = {$/;"	v	typeref:struct:bench_operations
+n_dir_ins_ops	src/MWRM.c	/^struct bench_operations n_dir_ins_ops = {$/;"	v	typeref:struct:bench_operations
+n_dir_rd_bg_ops	src/MRDL_bg.c	/^struct bench_operations n_dir_rd_bg_ops = {$/;"	v	typeref:struct:bench_operations
+n_dir_rd_ops	src/MRDL.c	/^struct bench_operations n_dir_rd_ops = {$/;"	v	typeref:struct:bench_operations
+n_file_rd_bg_ops	src/DRBL_bg.c	/^struct bench_operations n_file_rd_bg_ops = {$/;"	v	typeref:struct:bench_operations
+n_file_rd_ops	src/DRBL.c	/^struct bench_operations n_file_rd_ops = {$/;"	v	typeref:struct:bench_operations
+n_file_rename_ops	src/MWRL.c	/^struct bench_operations n_file_rename_ops = {$/;"	v	typeref:struct:bench_operations
+n_inode_alloc_ops	src/MWCL.c	/^struct bench_operations n_inode_alloc_ops = {$/;"	v	typeref:struct:bench_operations
+n_jnl_cmt_ops	src/DWSL.c	/^struct bench_operations n_jnl_cmt_ops = {$/;"	v	typeref:struct:bench_operations
+n_mtime_upt_ops	src/DWOM.c	/^struct bench_operations n_mtime_upt_ops = {$/;"	v	typeref:struct:bench_operations
+n_path_rsl_bg_ops	src/MRPM_bg.c	/^struct bench_operations n_path_rsl_bg_ops = {$/;"	v	typeref:struct:bench_operations
+n_path_rsl_ops	src/MRPM.c	/^struct bench_operations n_path_rsl_ops = {$/;"	v	typeref:struct:bench_operations
+n_priv_path_rsl_ops	src/MRPL.c	/^struct bench_operations n_priv_path_rsl_ops = {$/;"	v	typeref:struct:bench_operations
+n_shblk_rd_bg_ops	src/DRBH_bg.c	/^struct bench_operations n_shblk_rd_bg_ops = {$/;"	v	typeref:struct:bench_operations
+n_shblk_rd_ops	src/DRBH.c	/^struct bench_operations n_shblk_rd_ops = {$/;"	v	typeref:struct:bench_operations
+n_shdir_rd_bg_ops	src/MRDM_bg.c	/^struct bench_operations n_shdir_rd_bg_ops = {$/;"	v	typeref:struct:bench_operations
+n_shdir_rd_ops	src/MRDM.c	/^struct bench_operations n_shdir_rd_ops = {$/;"	v	typeref:struct:bench_operations
+n_shfile_rd_bg_ops	src/DRBM_bg.c	/^struct bench_operations n_shfile_rd_bg_ops = {$/;"	v	typeref:struct:bench_operations
+n_shfile_rd_ops	src/DRBM.c	/^struct bench_operations n_shfile_rd_ops = {$/;"	v	typeref:struct:bench_operations
+n_spath_rsl_ops	src/MRPH.c	/^struct bench_operations n_spath_rsl_ops = {$/;"	v	typeref:struct:bench_operations
+name	src/fxmark.c	/^	const char *name;$/;"	m	struct:bench_desc	typeref:typename:const char *	file:
+nbg	src/bench.h	/^	int nbg;$/;"	m	struct:bench	typeref:typename:int
+nbg	src/fxmark.h	/^	int nbg;$/;"	m	struct:cmd_opt	typeref:typename:int
+ncore	src/fxmark.h	/^	int ncore;$/;"	m	struct:cmd_opt	typeref:typename:int
+ncpu	src/bench.h	/^	int ncpu;$/;"	m	struct:bench	typeref:typename:int
+nop	bin/perfmon.py	/^    def nop(x):$/;"	f
+nop_pause	src/bench.c	/^static inline void nop_pause(void)$/;"	f	typeref:typename:void	file:
+op	bin/perfmon.py	/^    op = {"start":PerfMon.start,$/;"	v
+op	bin/set-cpus	/^	op = (op for op in operators.keys() if op in arg).next()$/;"	v
+operators	bin/set-cpus	/^operators = { '==': lambda a, b: a == b,$/;"	v
+ops	src/bench.h	/^	struct bench_operations ops;$/;"	m	struct:bench	typeref:struct:bench_operations
+ops	src/fxmark.c	/^	struct bench_operations *ops;$/;"	m	struct:bench_desc	typeref:struct:bench_operations *	file:
+ops	src/fxmark.h	/^	struct bench_operations *ops;$/;"	m	struct:cmd_opt	typeref:struct:bench_operations *
+page	src/bench.h	/^	char *page;		\/*private data buffer*\/$/;"	m	struct:worker	typeref:typename:char *
+parse	bin/parser.py	/^    def parse(self, log_file):$/;"	m	class:Parser
+parseCpuinfo	bin/cpuinfo.py	/^def parseCpuinfo(path):$/;"	f
+parseRange	bin/cpuinfo.py	/^def parseRange(r):$/;"	f
+parse_option	src/fxmark.c	/^static int parse_option(int argc, char *argv[], struct cmd_opt *opt)$/;"	f	typeref:typename:int	file:
+parser	bin/kibt.py	/^    parser = optparse.OptionParser()$/;"	v
+parser	bin/list-cpus	/^parser = optparse.OptionParser("usage: %prog [options] <sorters and filters...>")$/;"	v
+parser	bin/perfstdio.py	/^    parser = optparse.OptionParser()$/;"	v
+parser	bin/plotter.py	/^    parser = optparse.OptionParser()$/;"	v
+parser	bin/run-dbench.py	/^    parser = optparse.OptionParser()$/;"	v
+parser	bin/run-filebench.py	/^    parser = optparse.OptionParser()$/;"	v
+parser	bin/set-cpus	/^parser = optparse.OptionParser("usage: %prog [options] <sorters and filters...>")$/;"	v
+path	bin/set-cpus	/^        path = "\/sys\/devices\/system\/cpu\/cpu%d\/online" % plug$/;"	v
+pc_map	bin/cpu-sequences	/^pc_map = {}$/;"	v
+perfmon	bin/perfmon.py	/^    perfmon = PerfMon()$/;"	v
+perfstdio	bin/perfstdio.py	/^    perfstdio = PerfStdio(opt.dir, opt.out)$/;"	v
+perm	bin/set-cpus	/^        field, perm = arg.split('@', 1)$/;"	v
+personality	bin/set-cpus	/^    personality = "list"$/;"	v
+personality	bin/set-cpus	/^personality = "set"$/;"	v
+physical_chips	bin/cpu-sequences	/^physical_chips = len(physical_ids)$/;"	v
+physical_id	bin/cpu-sequences	/^    physical_id = cpu["physical id"]$/;"	v
+physical_id_set	bin/cpu-sequences	/^physical_id_set = set()$/;"	v
+physical_ids	bin/cpu-sequences	/^physical_ids = list(physical_id_set)$/;"	v
+plot_sc	bin/plotter.py	/^    def plot_sc(self, out_dir):$/;"	m	class:Plotter
+plot_util	bin/plotter.py	/^    def plot_util(self, ncore, out_dir):$/;"	m	class:Plotter
+plotter	bin/plotter.py	/^    plotter = Plotter(opts.log)$/;"	v
+post_work	bin/run-fxmark.py	/^    def post_work(self):$/;"	m	class:Runner
+post_work	src/bench.h	/^	int (*post_work)(struct worker*);$/;"	m	struct:bench_operations	typeref:typename:int (*)(struct worker *)
+pre_work	bin/run-fxmark.py	/^    def pre_work(self):$/;"	m	class:Runner
+pre_work	src/DRBH.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/DRBH_bg.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/DRBL.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/DRBL_bg.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/DRBM.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/DRBM_bg.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/DWAL.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/DWOL.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/DWOM.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/DWSL.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/DWTL.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MRDL.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MRDL_bg.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MRDM.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MRDM_bg.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MRPH.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MRPL.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MRPM.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MRPM_bg.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MWCL.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MWCM.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MWRL.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MWRM.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MWUL.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/MWUM.c	/^static int pre_work(struct worker *worker)$/;"	f	typeref:typename:int	file:
+pre_work	src/bench.h	/^	int (*pre_work)(struct worker*);$/;"	m	struct:bench_operations	typeref:typename:int (*)(struct worker *)
+prepre_work	bin/run-fxmark.py	/^    def prepre_work(self, ncore):$/;"	m	class:Runner
+printTable	bin/fs_locking_table.py	/^  def printTable(self):$/;"	m	class:BuildFSLockingTable
+print_inlined_backtrace	bin/kibt.py	/^    def print_inlined_backtrace(self, caller, callee):$/;"	m	class:KernelBackTrace
+private	src/bench.h	/^	uint64_t private[WORKER_MAX_PRIVATE];$/;"	m	struct:worker	typeref:typename:uint64_t[]
+private	src/fxmark.h	/^	uint64_t private[FX_OPT_MAX_PRIVATE];$/;"	m	struct:fx_opt	typeref:typename:uint64_t[]
+profile_start_cmd	src/bench.h	/^	char profile_start_cmd[BENCH_PROFILE_CMD_BYTES];$/;"	m	struct:bench	typeref:typename:char[]
+profile_start_cmd	src/fxmark.h	/^	char *profile_start_cmd;$/;"	m	struct:cmd_opt	typeref:typename:char *
+profile_stat_file	src/bench.h	/^	char profile_stat_file[PATH_MAX];$/;"	m	struct:bench	typeref:typename:char[]
+profile_stat_file	src/fxmark.h	/^	char *profile_stat_file;$/;"	m	struct:cmd_opt	typeref:typename:char *
+profile_stop_cmd	src/bench.h	/^	char profile_stop_cmd[BENCH_PROFILE_CMD_BYTES];$/;"	m	struct:bench	typeref:typename:char[]
+profile_stop_cmd	src/fxmark.h	/^	char *profile_stop_cmd;$/;"	m	struct:cmd_opt	typeref:typename:char *
+pseudo_random	src/util.h	/^inline static unsigned int pseudo_random(unsigned int x_n)$/;"	f	typeref:typename:unsigned int
+randomize_digits	src/MRPM.c	/^static void randomize_digits(unsigned int len, unsigned int *digits)$/;"	f	typeref:typename:void	file:
+randomize_digits	src/MRPM_bg.c	/^static void randomize_digits(unsigned int len, unsigned int *digits)$/;"	f	typeref:typename:void	file:
+rc	bin/run-dbench.py	/^    rc = dbench.run()$/;"	v
+rc	bin/run-filebench.py	/^    rc = filebench.run()$/;"	v
+rdmsr	bin/cpuinfo.py	/^    def rdmsr(self, msr):$/;"	m	class:CPUBase
+rdtsc	src/rdtsc.h	/^rdtsc(void)$/;"	f	typeref:typename:uint64_t
+rdtsc_beg	src/rdtsc.h	/^rdtsc_beg(void)$/;"	f	typeref:typename:uint64_t
+rdtsc_end	src/rdtsc.h	/^rdtsc_end(void)$/;"	f	typeref:typename:uint64_t
+rdtsc_overhead	src/rdtsc.c	/^uint64_t rdtsc_overhead(double *stddev_out)$/;"	f	typeref:typename:uint64_t
+ready	src/bench.h	/^	volatile int ready;$/;"	m	struct:worker	typeref:typename:volatile int
+report	bin/run-dbench.py	/^    def report(self):$/;"	m	class:DBench
+report	bin/run-filebench.py	/^    def report(self):$/;"	m	class:FileBench
+report_bench	src/bench.c	/^void report_bench(struct bench *bench, FILE *out)$/;"	f	typeref:typename:void
+report_bench	src/bench.h	/^	void (*report_bench)(struct bench *bench, FILE *out);$/;"	m	struct:bench_operations	typeref:typename:void (*)(struct bench * bench,FILE * out)
+ret	src/bench.h	/^	volatile int ret;$/;"	m	struct:worker	typeref:typename:volatile int
+root	src/fxmark.h	/^	char *root;$/;"	m	struct:cmd_opt	typeref:typename:char *
+root	src/fxmark.h	/^	char root[PATH_MAX];$/;"	m	struct:fx_opt	typeref:typename:char[]
+rr	bin/cpu-sequences	/^def rr(cpuinfo):$/;"	f
+rr_cores	bin/cpupol.py	/^rr_cores                      = [0,16,1,17,2,18,3,19,4,20,5,21,6,22,7,23,8,24,9,25,10,26,11,27,1/;"	v
+rr_cores	bin/gen_corepolicy	/^rr_cores       = topology_info["rr"] $/;"	v
+rr_cores	src/cpupol.h	/^const unsigned int rr_cores[]                      = {0,16,1,17,2,18,3,19,4,20,5,21,6,22,7,23,8,/;"	v	typeref:typename:const unsigned int[]
+run	bin/run-dbench.py	/^    def run(self):$/;"	m	class:DBench
+run	bin/run-filebench.py	/^    def run(self):$/;"	m	class:FileBench
+run	bin/run-fxmark.py	/^    def run(self):$/;"	m	class:Runner
+run_bench	src/bench.c	/^void run_bench(struct bench *bench)$/;"	f	typeref:typename:void
+run_config	bin/run-fxmark.py	/^    run_config = [$/;"	v
+runner	bin/run-fxmark.py	/^        runner = Runner(c[0], c[1], c[2])$/;"	v
+running_bench	src/bench.c	/^static struct bench *running_bench;$/;"	v	typeref:struct:bench *	file:
+same_digits	src/MRPH.c	/^static void same_digits(unsigned int len, unsigned int *digits)$/;"	f	typeref:typename:void	file:
+search_data	bin/parser.py	/^    def search_data(self, key_list = []):$/;"	m	class:Parser
+seq	bin/cpu-sequences	/^def seq(cpuinfo):$/;"	f
+seq_cores	bin/cpupol.py	/^seq_cores                     = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,2/;"	v
+seq_cores	bin/gen_corepolicy	/^seq_cores      = topology_info["seq"]$/;"	v
+seq_cores	src/cpupol.h	/^const unsigned int seq_cores[]                     = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1/;"	v	typeref:typename:const unsigned int[]
+set_bg_digits	src/MRPM_bg.c	/^static void set_bg_digits(unsigned int len, $/;"	f	typeref:typename:void	file:
+set_bg_test_path	src/MRPM_bg.c	/^static void set_bg_test_path(struct worker *worker, $/;"	f	typeref:typename:void	file:
+set_cpus	bin/run-fxmark.py	/^    def set_cpus(self, ncore):$/;"	m	class:Runner
+set_digits	src/MRPH.c	/^static void set_digits(unsigned int len,$/;"	f	typeref:typename:void	file:
+set_digits	src/MRPM.c	/^static void set_digits(unsigned int len, $/;"	f	typeref:typename:void	file:
+set_digits	src/MRPM_bg.c	/^static void set_digits(unsigned int len, $/;"	f	typeref:typename:void	file:
+set_prefetch_settings	bin/cpuinfo.py	/^    def set_prefetch_settings(self, nps):$/;"	m	class:NehalemCPU
+set_renamed_test_file	src/MWRM.c	/^static void set_renamed_test_file(struct worker *worker, $/;"	f	typeref:typename:void	file:
+set_shared_test_root	src/DRBH.c	/^static void set_shared_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_shared_test_root	src/DRBH_bg.c	/^static void set_shared_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_shared_test_root	src/DRBM.c	/^static void set_shared_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_shared_test_root	src/DRBM_bg.c	/^static void set_shared_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_shared_test_root	src/DWOM.c	/^static void set_shared_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_file	src/DRBH.c	/^static void set_test_file(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_file	src/DRBH_bg.c	/^static void set_test_file(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_file	src/DRBM.c	/^static void set_test_file(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_file	src/DRBM_bg.c	/^static void set_test_file(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_file	src/DWOM.c	/^static void set_test_file(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_file	src/DWTL.c	/^static void set_test_file(struct worker *worker,$/;"	f	typeref:typename:void	file:
+set_test_file	src/MRDL.c	/^static void set_test_file(struct worker *worker, $/;"	f	typeref:typename:void	file:
+set_test_file	src/MRDL_bg.c	/^static void set_test_file(struct worker *worker, $/;"	f	typeref:typename:void	file:
+set_test_file	src/MRDM.c	/^static void set_test_file(struct worker *worker, $/;"	f	typeref:typename:void	file:
+set_test_file	src/MRDM_bg.c	/^static void set_test_file(struct worker *worker, $/;"	f	typeref:typename:void	file:
+set_test_file	src/MRPL.c	/^static void set_test_file(struct worker *worker, char *test_file)$/;"	f	typeref:typename:void	file:
+set_test_file	src/MWRL.c	/^static void set_test_file(struct worker *worker, $/;"	f	typeref:typename:void	file:
+set_test_file	src/MWRM.c	/^static void set_test_file(struct worker *worker, $/;"	f	typeref:typename:void	file:
+set_test_file	src/MWUL.c	/^static void set_test_file(struct worker *worker,$/;"	f	typeref:typename:void	file:
+set_test_file	src/MWUM.c	/^static void set_test_file(struct worker *worker,$/;"	f	typeref:typename:void	file:
+set_test_path	src/MRPH.c	/^static void set_test_path(struct worker *worker,$/;"	f	typeref:typename:void	file:
+set_test_path	src/MRPM.c	/^static void set_test_path(struct worker *worker, $/;"	f	typeref:typename:void	file:
+set_test_path	src/MRPM_bg.c	/^static void set_test_path(struct worker *worker, $/;"	f	typeref:typename:void	file:
+set_test_root	src/DRBL.c	/^static void set_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_root	src/DRBL_bg.c	/^static void set_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_root	src/DWAL.c	/^static void set_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_root	src/DWOL.c	/^static void set_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_root	src/DWSL.c	/^static void set_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_root	src/MRDL.c	/^static void set_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_root	src/MRDL_bg.c	/^static void set_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_root	src/MRDM.c	/^static void set_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_root	src/MRDM_bg.c	/^static void set_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_root	src/MWCL.c	/^static void set_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_root	src/MWRL.c	/^static void set_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_root	src/MWRM.c	/^static void set_test_root(struct worker *worker, char *test_root)$/;"	f	typeref:typename:void	file:
+set_test_root	src/MWUL.c	/^static void set_test_root(struct worker *worker, char *test_root) {$/;"	f	typeref:typename:void	file:
+setaffinity	src/bench.c	/^static int setaffinity(int c)$/;"	f	typeref:typename:int	file:
+setup_workload	bin/run-filebench.py	/^    def setup_workload(self):$/;"	m	class:FileBench
+sighandler	src/MRDL.c	/^static void sighandler(int x)$/;"	f	typeref:typename:void	file:
+sighandler	src/MRDL_bg.c	/^static void sighandler(int x)$/;"	f	typeref:typename:void	file:
+sighandler	src/MRDM.c	/^static void sighandler(int x)$/;"	f	typeref:typename:void	file:
+sighandler	src/MRDM_bg.c	/^static void sighandler(int x)$/;"	f	typeref:typename:void	file:
+sighandler	src/MWRM.c	/^static void sighandler(int x)$/;"	f	typeref:typename:void	file:
+sighandler	src/bench.c	/^static void sighandler(int x)$/;"	f	typeref:typename:void	file:
+smt_level	bin/cpu-sequences	/^smt_level      = len(pc_map[str(list(physical_ids)[0]) + ":" + str(list(core_ids)[0])])$/;"	v
+sorters	bin/set-cpus	/^sorters = []$/;"	v
+start	bin/perfmon.py	/^    def start(self):$/;"	m	class:PerfMon
+start	src/bench.h	/^	volatile int start;$/;"	m	struct:bench	typeref:typename:volatile int
+stop	bin/perfmon.py	/^    def stop(self):$/;"	m	class:PerfMon
+stop	src/bench.h	/^	volatile int stop;$/;"	m	struct:bench	typeref:typename:volatile int
+stop_pre_work	src/MRDL.c	/^static int stop_pre_work;$/;"	v	typeref:typename:int	file:
+stop_pre_work	src/MRDL_bg.c	/^static int stop_pre_work;$/;"	v	typeref:typename:int	file:
+stop_pre_work	src/MRDM.c	/^static int stop_pre_work;$/;"	v	typeref:typename:int	file:
+stop_pre_work	src/MRDM_bg.c	/^static int stop_pre_work;$/;"	v	typeref:typename:int	file:
+stop_pre_work	src/MWRM.c	/^static int stop_pre_work;$/;"	v	typeref:typename:int	file:
+str	bin/list-cpus	/^    str = list_cpus(options.order, options.thread, options.limit, options.display)$/;"	v
+strRange	bin/cpuinfo.py	/^def strRange(cpus):$/;"	f
+strRange	bin/list-cpus	/^def strRange(cpus):$/;"	f
+test_hw_thr_cnts_coarse_grain	bin/cpupol.py	/^test_hw_thr_cnts_coarse_grain = [1,2,4,16,32,48,64]$/;"	v
+test_hw_thr_cnts_coarse_grain	bin/gen_corepolicy	/^test_hw_thr_cnts_coarse_grain = gen_test_hw_thr_counts(False)$/;"	v
+test_hw_thr_cnts_coarse_grain	src/cpupol.h	/^const unsigned int test_hw_thr_cnts_coarse_grain[] = {1,2,4,16,32,48,64};$/;"	v	typeref:typename:const unsigned int[]
+test_hw_thr_cnts_fine_grain	bin/cpupol.py	/^test_hw_thr_cnts_fine_grain   = [1,2,4,8,16,24,32,48,64]$/;"	v
+test_hw_thr_cnts_fine_grain	bin/gen_corepolicy	/^test_hw_thr_cnts_fine_grain = gen_test_hw_thr_counts(True)$/;"	v
+test_hw_thr_cnts_fine_grain	src/cpupol.h	/^const unsigned int test_hw_thr_cnts_fine_grain[]   = {1,2,4,8,16,24,32,48,64};$/;"	v	typeref:typename:const unsigned int[]
+to_msr	bin/cpuinfo.py	/^    def to_msr(self):$/;"	m	class:NehalemPrefetchSettings
+topology_info	bin/gen_corepolicy	/^topology_info = [dict(map(str.strip, line.split(":", 1))$/;"	v
+topology_info	bin/gen_corepolicy	/^topology_info = topology_info[0]$/;"	v
+u_file_cr_ops	src/MWCM.c	/^struct bench_operations u_file_cr_ops = {$/;"	v	typeref:struct:bench_operations
+u_file_rm_ops	src/MWUL.c	/^struct bench_operations u_file_rm_ops = {$/;"	v	typeref:struct:bench_operations
+u_file_tr_ops	src/DWTL.c	/^struct bench_operations u_file_tr_ops = {$/;"	v	typeref:struct:bench_operations
+u_sh_file_rm_ops	src/MWUM.c	/^struct bench_operations u_sh_file_rm_ops = {$/;"	v	typeref:struct:bench_operations
+umount	bin/run-fxmark.py	/^    def umount(self, where):$/;"	m	class:Runner
+unset_loopdev	bin/run-fxmark.py	/^    def unset_loopdev(self):$/;"	m	class:Runner
+updateBaseCPUs	bin/set-cpus	/^def updateBaseCPUs(cpuset):$/;"	f
+usage	src/fxmark.c	/^static void usage(FILE *out, const char *myname)$/;"	f	typeref:typename:void	file:
+usec	src/bench.c	/^static uint64_t usec(void)$/;"	f	typeref:typename:uint64_t	file:
+usecs	src/bench.h	/^	volatile uint64_t usecs;$/;"	m	struct:worker	typeref:typename:volatile uint64_t
+val	bin/kibt.py	/^        val = getattr(opts, opt)$/;"	v
+val	bin/plotter.py	/^        val = getattr(opts, opt)$/;"	v
+val	bin/run-dbench.py	/^        val = getattr(opts, opt)$/;"	v
+val	bin/run-filebench.py	/^        val = getattr(opts, opt)$/;"	v
+value	bin/set-cpus	/^        field, value = arg.split(op, 1)$/;"	v
+wait	src/bench.c	/^static void wait(struct bench *bench)$/;"	f	typeref:typename:void	file:
+wantOffline	bin/set-cpus	/^    wantOffline = getCPUSet("present") - wantOnline$/;"	v
+wantOnline	bin/set-cpus	/^    wantOnline = set(cpu["processor"] for cpu in cpuinfo)$/;"	v
+wmb	src/bench.c	/^static inline void wmb(void)$/;"	f	typeref:typename:void	file:
+worker	src/bench.h	/^struct worker {$/;"	s
+worker_main	src/bench.c	/^static void worker_main(void *arg)$/;"	f	typeref:typename:void	file:
+workers	src/bench.h	/^	struct worker *workers; $/;"	m	struct:bench	typeref:struct:worker *
+works	src/bench.h	/^	volatile double   works;$/;"	m	struct:worker	typeref:typename:volatile double
+wrmsr	bin/cpuinfo.py	/^    def wrmsr(self, msr, val):$/;"	m	class:CPUBase

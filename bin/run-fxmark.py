@@ -19,73 +19,76 @@ except ImportError:
           % os.path.normpath(os.path.join(CUR_DIR, "..")))
     raise
 
+
 def catch_ctrl_C(sig, frame):
     print("Umount a testing file system. Please wait.")
+
 
 class Runner(object):
     # media path
     LOOPDEV = "/dev/loopX"
-    NVMEDEV = "/dev/nvme0n1p1"
+    NVMEDEV = "/dev/nvme0n1"
     RAMDISKDEV = "/dev/md0"
-    HDDDEV  = "/dev/sdX"
-    SSDDEV  = "/dev/sdY"
+    HDDDEV = "/dev/sdX"
+    SSDDEV = "/dev/sdY"
 
     # test core granularity
-    CORE_FINE_GRAIN   = 0
+    CORE_FINE_GRAIN = 0
     CORE_COARSE_GRAIN = 1
 
-    def __init__(self, \
-                 core_grain = CORE_COARSE_GRAIN, \
-                 pfm_lvl = PerfMon.LEVEL_LOW, \
-                 run_filter = ("*", "*", "*", "*", "*")):
+    def __init__(self,
+                 core_grain=CORE_COARSE_GRAIN,
+                 pfm_lvl=PerfMon.LEVEL_LOW,
+                 run_filter=("*", "*", "*", "*", "*")):
         # run config
-        self.CORE_GRAIN    = core_grain
+        self.CORE_GRAIN = core_grain
         self.PERFMON_LEVEL = pfm_lvl
-        self.FILTER        = run_filter # media, fs, bench, ncore, directio
-        self.DRYRUN        = False
-        self.DEBUG_OUT     = False
+        self.FILTER = run_filter  # media, fs, bench, ncore, directio
+        self.DRYRUN = False
+        self.DEBUG_OUT = False
 
         # bench config
-        self.DISK_SIZE     = "64G"
-        self.DURATION      = 4 # seconds
-        self.DIRECTIOS     = ["bufferedio", "directio"]  # enable directio except tmpfs -> nodirectio 
-        self.MEDIA_TYPES   = ["ssd", "hdd", "ramdisk", "nvme", "mem"]
-        self.FS_TYPES      = [
-#        self.FS_TYPES      = ["tmpfs",
-                              "ext4", #"ext4_no_jnl",
-                              "xfs",
-                              "btrfs",
-                              "f2fs",
-                              # "jfs", "reiserfs", "ext2", "ext3",
+        self.DISK_SIZE = "64G"
+        self.DURATION = 4  # seconds
+        # enable directio except tmpfs -> nodirectio
+        self.DIRECTIOS = ["bufferedio", "directio"]
+        self.MEDIA_TYPES = ["ssd", "hdd", "ramdisk", "nvme", "mem"]
+        self.FS_TYPES = [
+            #        self.FS_TYPES      = ["tmpfs",
+                                          "ext4",  # "ext4_no_jnl",
+                                         "xfs",
+                                        "btrfs",
+            "f2fs",
+            # "jfs", "reiserfs", "ext2", "ext3",
         ]
-        self.BENCH_TYPES   = [
+        self.BENCH_TYPES = [
             # write/write
             "DWAL",
             "DWOL",
             "DWOM",
             "DWSL",
-           # "MWRL",
-           # "MWRM",
-           # "MWCL",
-           # "MWCM",
-           # "MWUM",
-           # "MWUL",
+            # "MWRL",
+            # "MWRM",
+            # "MWCL",
+            # "MWCM",
+            # "MWUM",
+            # "MWUL",
             "DWTL",
 
             # filebench
-            #"filebench_varmail",
-            #"filebench_oltp",
-            #"filebench_fileserver",
+            # "filebench_varmail",
+            # "filebench_oltp",
+            # "filebench_fileserver",
 
             # dbench
-            #"dbench_client",
+            # "dbench_client",
 
             # read/read
-           # "MRPL",
-           # "MRPM",
-           # "MRPH",
-           # "MRDM",
-           # "MRDL",
+            # "MRPL",
+            # "MRPM",
+            # "MRPH",
+            # "MRDM",
+            # "MRDL",
             "DRBH",
             "DRBM",
             "DRBL",
@@ -98,56 +101,56 @@ class Runner(object):
             # "DRBL_bg",
             # "MRDL_bg",
         ]
-        self.BENCH_BG_SFX   = "_bg"
+        self.BENCH_BG_SFX = "_bg"
 
         # path config
-        self.ROOT_NAME      = "root"
-        self.LOGD_NAME      = "../logs"
-        self.FXMARK_NAME    = "fxmark"
+        self.ROOT_NAME = "root"
+        self.LOGD_NAME = "../logs"
+        self.FXMARK_NAME = "fxmark"
         self.FILEBENCH_NAME = "run-filebench.py"
-        self.DBENCH_NAME    = "run-dbench.py"
-        self.PERFMN_NAME    = "perfmon.py"
+        self.DBENCH_NAME = "run-dbench.py"
+        self.PERFMN_NAME = "perfmon.py"
 
         # fs config
         self.HOWTO_MOUNT = {
-            "tmpfs":self.mount_tmpfs,
-            "ext2":self.mount_anyfs,
-            "ext3":self.mount_anyfs,
-            "ext4":self.mount_anyfs,
-            "ext4_no_jnl":self.mount_ext4_no_jnl,
-            "xfs":self.mount_anyfs,
-            "btrfs":self.mount_anyfs,
-            "f2fs":self.mount_anyfs,
-            "jfs":self.mount_anyfs,
-            "reiserfs":self.mount_anyfs,
+            "tmpfs": self.mount_tmpfs,
+            "ext2": self.mount_anyfs,
+            "ext3": self.mount_anyfs,
+            "ext4": self.mount_anyfs,
+            "ext4_no_jnl": self.mount_ext4_no_jnl,
+            "xfs": self.mount_anyfs,
+            "btrfs": self.mount_anyfs,
+            "f2fs": self.mount_f2fs_zns,
+            "jfs": self.mount_anyfs,
+            "reiserfs": self.mount_anyfs,
         }
         self.HOWTO_MKFS = {
-            "ext2":"-F",
-            "ext3":"-F",
-            "ext4":"-F",
-            "ext4_no_jnl":"-F",
-            "xfs":"-f",
-            "btrfs":"-f",
-            "jfs":"-q",
-            "reiserfs":"-q",
+            "ext2": "-F",
+            "ext3": "-F",
+            "ext4": "-F",
+            "ext4_no_jnl": "-F",
+            "xfs": "-f",
+            "btrfs": "-f",
+            "jfs": "-q",
+            "reiserfs": "-q",
         }
 
         # media config
         self.HOWTO_INIT_MEDIA = {
-            "mem":self.init_mem_disk,
-            "ramdisk":self.init_ram_disk,
-            "nvme":self.init_nvme_disk,
-            "ssd":self.init_ssd_disk,
-            "hdd":self.init_hdd_disk,
+            "mem": self.init_mem_disk,
+            "ramdisk": self.init_ram_disk,
+            "nvme": self.init_nvme_disk,
+            "ssd": self.init_ssd_disk,
+            "hdd": self.init_hdd_disk,
         }
 
         # misc. setup
-        self.redirect    = subprocess.PIPE if not self.DEBUG_OUT else None
-        self.dev_null    = open("/dev/null", "a") if not self.DEBUG_OUT else None
-        self.npcpu       = cpupol.PHYSICAL_CHIPS * cpupol.CORE_PER_CHIP
-        self.nhwthr      = self.npcpu * cpupol.SMT_LEVEL
-        self.ncores      = self.get_ncores()
-        self.test_root   = os.path.normpath(
+        self.redirect = subprocess.PIPE if not self.DEBUG_OUT else None
+        self.dev_null = open("/dev/null", "a") if not self.DEBUG_OUT else None
+        self.npcpu = cpupol.PHYSICAL_CHIPS * cpupol.CORE_PER_CHIP
+        self.nhwthr = self.npcpu * cpupol.SMT_LEVEL
+        self.ncores = self.get_ncores()
+        self.test_root = os.path.normpath(
             os.path.join(CUR_DIR, self.ROOT_NAME))
         self.fxmark_path = os.path.normpath(
             os.path.join(CUR_DIR, self.FXMARK_NAME))
@@ -164,32 +167,35 @@ class Runner(object):
         self.perfmon_stop = "%s stop" % os.path.normpath(
             os.path.join(CUR_DIR, self.PERFMN_NAME))
         self.perfmon_log = ""
-        self.log_dir     = ""
-        self.log_path    = ""
+        self.log_dir = ""
+        self.log_path = ""
         self.umount_hook = []
         self.active_ncore = -1
 
     def log_start(self):
         self.log_dir = os.path.normpath(
             os.path.join(CUR_DIR, self.LOGD_NAME,
-                         str(datetime.datetime.now()).replace(' ','-').replace(':','-')))
-        self.log_path = os.path.normpath( os.path.join(self.log_dir, "fxmark.log"))
+                         str(datetime.datetime.now()).replace(' ', '-').replace(':', '-')))
+        self.log_path = os.path.normpath(
+            os.path.join(self.log_dir, "fxmark.log"))
         self.exec_cmd("mkdir -p " + self.log_dir, self.dev_null)
 
         self.log_fd = open(self.log_path, "bw")
-        p = self.exec_cmd("echo -n \"### SYSTEM         = \"; uname -a", self.redirect)
+        p = self.exec_cmd(
+            "echo -n \"### SYSTEM         = \"; uname -a",
+            self.redirect)
         if self.redirect:
             for l in p.stdout.readlines():
                 self.log(l.decode("utf-8").strip())
-        self.log("### DISK_SIZE      = %s"   % self.DISK_SIZE)
-        self.log("### DURATION       = %ss"  % self.DURATION)
-        self.log("### DIRECTIO       = %s"   % ','.join(self.DIRECTIOS))
-        self.log("### MEDIA_TYPES    = %s"   % ','.join(self.MEDIA_TYPES))
-        self.log("### FS_TYPES       = %s"   % ','.join(self.FS_TYPES))
-        self.log("### BENCH_TYPES    = %s"   % ','.join(self.BENCH_TYPES))
-        self.log("### NCORES         = %s"   % 
+        self.log("### DISK_SIZE      = %s" % self.DISK_SIZE)
+        self.log("### DURATION       = %ss" % self.DURATION)
+        self.log("### DIRECTIO       = %s" % ','.join(self.DIRECTIOS))
+        self.log("### MEDIA_TYPES    = %s" % ','.join(self.MEDIA_TYPES))
+        self.log("### FS_TYPES       = %s" % ','.join(self.FS_TYPES))
+        self.log("### BENCH_TYPES    = %s" % ','.join(self.BENCH_TYPES))
+        self.log("### NCORES         = %s" %
                  ','.join(map(lambda c: str(c), self.ncores)))
-        self.log("### CORE_SEQ       = %s" % 
+        self.log("### CORE_SEQ       = %s" %
                  ','.join(map(lambda c: str(c), cpupol.seq_cores)))
         self.log("\n")
         self.log("### MODEL_NAME     = %s" % cpupol.MODEL_NAME)
@@ -202,13 +208,13 @@ class Runner(object):
         self.log_fd.close()
 
     def log(self, log):
-        self.log_fd.write((log+'\n').encode('utf-8'))
+        self.log_fd.write((log + '\n').encode('utf-8'))
         print(log)
 
     def get_ncores(self):
         hw_thr_cnts_map = {
-            Runner.CORE_FINE_GRAIN:cpupol.test_hw_thr_cnts_fine_grain,
-            Runner.CORE_COARSE_GRAIN:cpupol.test_hw_thr_cnts_coarse_grain,
+            Runner.CORE_FINE_GRAIN: cpupol.test_hw_thr_cnts_fine_grain,
+            Runner.CORE_COARSE_GRAIN: cpupol.test_hw_thr_cnts_coarse_grain,
         }
         ncores = []
         test_hw_thr_cnts = hw_thr_cnts_map.get(self.CORE_GRAIN,
@@ -228,7 +234,7 @@ class Runner(object):
         self.exec_cmd("sudo -v", self.dev_null)
 
     def drop_caches(self):
-        cmd = ' '.join(["sudo", 
+        cmd = ' '.join(["sudo",
                         os.path.normpath(
                             os.path.join(CUR_DIR, "drop-caches"))])
         self.exec_cmd(cmd, self.dev_null)
@@ -237,13 +243,13 @@ class Runner(object):
         if self.active_ncore == ncore:
             return
         self.active_ncore = ncore
-        if ncore is 0:
+        if ncore == 0:
             ncores = "all"
         else:
             ncores = ','.join(map(lambda c: str(c), cpupol.seq_cores[0:ncore]))
-        cmd = ' '.join(["sudo", 
+        cmd = ' '.join(["sudo",
                         os.path.normpath(
-                            os.path.join(CUR_DIR, "set-cpus")), 
+                            os.path.join(CUR_DIR, "set-cpus")),
                         ncores])
         self.exec_cmd(cmd, self.dev_null)
 
@@ -275,10 +281,10 @@ class Runner(object):
     def umount(self, where):
         while True:
             p = self.exec_cmd("sudo umount " + where, self.dev_null)
-            if p.returncode is not 0:
+            if p.returncode != 0:
                 break
         (umount_hook, self.umount_hook) = (self.umount_hook, [])
-        map(lambda hook: hook(), umount_hook);
+        map(lambda hook: hook(), umount_hook)
 
     def init_mem_disk(self):
         self.unset_loopdev()
@@ -286,12 +292,12 @@ class Runner(object):
         self.unset_loopdev()
         self.exec_cmd("mkdir -p " + self.tmp_path, self.dev_null)
         if not self.mount_tmpfs("mem", "tmpfs", self.tmp_path):
-            return False;
-        self.exec_cmd("dd if=/dev/zero of=" 
-                      + self.disk_path +  " bs=1G count=1024000",
+            return False
+        self.exec_cmd("dd if=/dev/zero of="
+                      + self.disk_path + " bs=1G count=1024000",
                       self.dev_null)
         p = self.exec_cmd(' '.join(["sudo", "losetup",
-                                    Runner.LOOPDEV, self.disk_path]), 
+                                    Runner.LOOPDEV, self.disk_path]),
                           self.dev_null)
         if p.returncode == 0:
             self.umount_hook.append(self.deinit_mem_disk)
@@ -330,23 +336,45 @@ class Runner(object):
         (rc, dev_path) = self.init_media(media)
         if not rc:
             return False
-
         p = self.exec_cmd("sudo mkfs." + fs
                           + " " + self.HOWTO_MKFS.get(fs, "")
                           + " " + dev_path,
                           self.dev_null)
-        if p.returncode is not 0:
+        if p.returncode != 0:
             return False
         p = self.exec_cmd(' '.join(["sudo mount -t", fs,
                                     dev_path, mnt_path]),
                           self.dev_null)
-        if p.returncode is not 0:
+        if p.returncode != 0:
             return False
         p = self.exec_cmd("sudo chmod 777 " + mnt_path,
                           self.dev_null)
-        if p.returncode is not 0:
+        if p.returncode != 0:
             return False
         return True
+
+    def mount_f2fs_zns(self, media, fs, mnt_path):
+        print("mount f2fs ", mnt_path)
+        (rc, dev_path) = self.init_media(media)
+        if not rc:
+            return False
+        p = self.exec_cmd("sudo mkfs.f2fs -m -f /dev/nvme0n1 -c /dev/nvme1n2 -d2",
+                          self.dev_null)
+        if p.returncode != 0:
+            return False
+        p = self.exec_cmd("sudo mount -t f2fs /dev/nvme0n1 ",mnt_path,
+                          self.dev_null)
+        #p = self.exec_cmd(' '.join(["sudo mount -t", fs,
+         #                           dev_path, mnt_path]),
+          #                self.dev_null)
+        if p.returncode != 0:
+            return False
+        p = self.exec_cmd("sudo chmod 777 " + mnt_path,
+                          self.dev_null)
+        if p.returncode != 0:
+            return False
+        return True
+
 
     def mount_ext4_no_jnl(self, media, fs, mnt_path):
         (rc, dev_path) = self.init_media(media)
@@ -357,30 +385,34 @@ class Runner(object):
                           + " " + self.HOWTO_MKFS.get(fs, "")
                           + " " + dev_path,
                           self.dev_null)
-        if p.returncode is not 0:
+        if p.returncode != 0:
             return False
         p = self.exec_cmd("sudo tune2fs -O ^has_journal %s" % dev_path,
                           self.dev_null)
-        if p.returncode is not 0:
+        if p.returncode != 0:
             return False
         p = self.exec_cmd(' '.join(["sudo mount -t ext4",
                                     dev_path, mnt_path]),
                           self.dev_null)
-        if p.returncode is not 0:
+        if p.returncode != 0:
             return False
         p = self.exec_cmd("sudo chmod 777 " + mnt_path,
                           self.dev_null)
-        if p.returncode is not 0:
+        if p.returncode != 0:
             return False
         return True
 
     def mount(self, media, fs, mnt_path):
         mount_fn = self.HOWTO_MOUNT.get(fs, None)
         if not mount_fn:
-            return False;
-
-        self.umount(mnt_path)
-        self.exec_cmd("mkdir -p " + mnt_path, self.dev_null)
+            return False
+        print("mount")
+        self.exec_cmd("sudo umount ",mnt_path, self.dev_null)
+        self.exec_cmd("sudo rm -rf ",mnt_path, self.dev_null)
+        self.exec_cmd("sudo mkdir -p ",mnt_path, self.dev_null)
+		
+		#self.umount(mnt_path)
+		#self.exec_cmd("mkdir -p " + mnt_path, self.dev_null)
         return mount_fn(media, fs, mnt_path)
 
     def _match_config(self, key1, key2):
@@ -402,13 +434,13 @@ class Runner(object):
                             mount_fn = self.HOWTO_MOUNT.get(fs, None)
                             if not mount_fn:
                                 continue
-                            if self._match_config(self.FILTER, \
+                            if self._match_config(self.FILTER,
                                                   (media, fs, bench, str(ncore), dio)):
-                                yield(media, fs, bench, ncore, dio)
+                                yield (media, fs, bench, ncore, dio)
 
     def fxmark_env(self):
         env = ' '.join(["PERFMON_LEVEL=%s" % self.PERFMON_LEVEL,
-                        "PERFMON_LDIR=%s"  % self.log_dir,
+                        "PERFMON_LDIR=%s" % self.log_dir,
                         "PERFMON_LFILE=%s" % self.perfmon_log])
         return env
 
@@ -420,29 +452,30 @@ class Runner(object):
         return (self.fxmark_path, bench)
 
     def fxmark(self, media, fs, bench, ncore, nfg, nbg, dio):
+        print("fxmark start")
         self.perfmon_log = os.path.normpath(
             os.path.join(self.log_dir,
                          '.'.join([media, fs, bench, str(nfg), "pm"])))
         (bin, type) = self.get_bin_type(bench)
-        directio = '1' if dio is "directio" else '0'
+        directio = '1' if dio == "directio" else '0'
 
-        if directio is '1':
-            if fs is "tmpfs": 
+        if directio == '1':
+            if fs == "tmpfs":
                 print("# INFO: DirectIO under tmpfs disabled by default")
-                directio='0';
-            else: 
+                directio = '0'
+            else:
                 print("# INFO: DirectIO Enabled")
 
         cmd = ' '.join([self.fxmark_env(),
                         bin,
                         "--type", type,
                         "--ncore", str(ncore),
-                        "--nbg",  str(nbg),
+                        "--nbg", str(nbg),
                         "--duration", str(self.DURATION),
                         "--directio", directio,
                         "--root", self.test_root,
                         "--profbegin", "\"%s\"" % self.perfmon_start,
-                        "--profend",   "\"%s\"" % self.perfmon_stop,
+                        "--profend", "\"%s\"" % self.perfmon_stop,
                         "--proflog", self.perfmon_log])
         p = self.exec_cmd(cmd, self.redirect)
         if self.redirect:
@@ -460,12 +493,15 @@ class Runner(object):
         try:
             cnt = -1
             self.log_start()
-            for (cnt, (media, fs, bench, ncore, dio)) in enumerate(self.gen_config()):
+            for (cnt, (media, fs, bench, ncore, dio)
+                 ) in enumerate(self.gen_config()):
                 (ncore, nbg) = self.add_bg_worker_if_needed(bench, ncore)
                 nfg = ncore - nbg
 
                 if self.DRYRUN:
-                    self.log("## %s:%s:%s:%s:%s" % (media, fs, bench, nfg, dio))
+                    self.log(
+                        "## %s:%s:%s:%s:%s" %
+                        (media, fs, bench, nfg, dio))
                     continue
 
                 self.prepre_work(ncore)
@@ -484,11 +520,13 @@ class Runner(object):
             self.umount(self.test_root)
             self.set_cpus(0)
 
+
 def confirm_media_path():
     print("%" * 80)
     print("%% WARNING! WARNING! WARNING! WARNING! WARNING!")
     print("%" * 80)
     print("\n\n")
+
 
 if __name__ == "__main__":
     # config parameters
@@ -511,15 +549,15 @@ if __name__ == "__main__":
 
     # TODO: make it scriptable
     run_config = [
-        (Runner.CORE_FINE_GRAIN,
-         PerfMon.LEVEL_LOW,
-         ("ramdisk", "*", "*", "*", "*")),
-        (Runner.CORE_FINE_GRAIN,
-         PerfMon.LEVEL_LOW,
-         ("nvme", "*", "*", "*", "*")),
-        # ("nvme", "f2fs", "DWOM", "8", "*")),
+        #(Runner.CORE_FINE_GRAIN,
+        # PerfMon.LEVEL_LOW,
+        # ("ramdisk", "*", "*", "*", "*")),
+         (Runner.CORE_FINE_GRAIN,
+          PerfMon.LEVEL_LOW,
+        # ("nvme", "*", "*", "*", "*")),
+          ("nvme", "f2fs", "DWOL", "32", "directio")),
         # ("nvme", "f2fs", "DWAL", "8", "bufferedio")),
-       # ("nvme", "*", "DWTL", "16", "*")),
+        # ("nvme", "*", "DWTL", "16", "*")),
         # ("mem", "tmpfs", "filebench_varmail", "32", "directio")),
         # (Runner.CORE_COARSE_GRAIN,
         #  PerfMon.LEVEL_PERF_RECORD,
