@@ -43,7 +43,7 @@ class Parser(object):
         with open(pn) as fd:
             for l in fd:
                 l = l.strip()
-                if l is not "":
+                if l != "":
                     yield(l)
                     
     def _get_parse_fn(self, l):

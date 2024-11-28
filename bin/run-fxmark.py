@@ -49,7 +49,7 @@ class Runner(object):
 
         # bench config
         self.DISK_SIZE = "64G"
-        self.DURATION = 4  # seconds
+        self.DURATION = 60  # seconds
         # enable directio except tmpfs -> nodirectio
         self.DIRECTIOS = ["bufferedio", "directio"]
         self.MEDIA_TYPES = ["ssd", "hdd", "ramdisk", "nvme", "mem"]
@@ -279,6 +279,7 @@ class Runner(object):
                       self.dev_null)
 
     def umount(self, where):
+        print("umount")
         while True:
             p = self.exec_cmd("sudo umount " + where, self.dev_null)
             if p.returncode != 0:
@@ -362,9 +363,9 @@ class Runner(object):
                           self.dev_null)
         if p.returncode != 0:
             return False
-        p = self.exec_cmd("sudo mount -t f2fs /dev/nvme0n1 ",mnt_path,
+        p = self.exec_cmd("sudo mount -t f2fs /dev/nvme0n1 "+mnt_path,
                           self.dev_null)
-        #p = self.exec_cmd(' '.join(["sudo mount -t", fs,
+        #p = self.exec_cmd(' '.join(["sudo mount -t", f+,
          #                           dev_path, mnt_path]),
           #                self.dev_null)
         if p.returncode != 0:
@@ -407,12 +408,12 @@ class Runner(object):
         if not mount_fn:
             return False
         print("mount")
-        self.exec_cmd("sudo umount ",mnt_path, self.dev_null)
-        self.exec_cmd("sudo rm -rf ",mnt_path, self.dev_null)
-        self.exec_cmd("sudo mkdir -p ",mnt_path, self.dev_null)
-		
-		#self.umount(mnt_path)
-		#self.exec_cmd("mkdir -p " + mnt_path, self.dev_null)
+        self.exec_cmd("sudo umount "+mnt_path, self.dev_null)
+        self.exec_cmd("sudo rm -rf "+mnt_path, self.dev_null)
+        self.exec_cmd("sudo mkdir -p "+mnt_path, self.dev_null)
+        
+        #self.umount(mnt_path)
+        #self.exec_cmd("mkdir -p " + mnt_path, self.dev_null)
         return mount_fn(media, fs, mnt_path)
 
     def _match_config(self, key1, key2):
@@ -495,6 +496,7 @@ class Runner(object):
             self.log_start()
             for (cnt, (media, fs, bench, ncore, dio)
                  ) in enumerate(self.gen_config()):
+                print(cnt,media,fs,bench,ncore,dio)
                 (ncore, nbg) = self.add_bg_worker_if_needed(bench, ncore)
                 nfg = ncore - nbg
 
@@ -517,6 +519,7 @@ class Runner(object):
             signal.signal(signal.SIGINT, catch_ctrl_C)
             self.log_end()
             self.fxmark_cleanup()
+            print("umount2")
             self.umount(self.test_root)
             self.set_cpus(0)
 
@@ -555,7 +558,8 @@ if __name__ == "__main__":
          (Runner.CORE_FINE_GRAIN,
           PerfMon.LEVEL_LOW,
         # ("nvme", "*", "*", "*", "*")),
-          ("nvme", "f2fs", "DWOL", "32", "directio")),
+        #  ("nvme", "f2fs", "DWOL", "32", "directio")),
+          ("nvme", "f2fs", "DWOM", "32", "directio")),
         # ("nvme", "f2fs", "DWAL", "8", "bufferedio")),
         # ("nvme", "*", "DWTL", "16", "*")),
         # ("mem", "tmpfs", "filebench_varmail", "32", "directio")),
