@@ -50,6 +50,9 @@ class Runner(object):
         # bench config
         self.DISK_SIZE = "64G"
         self.DURATION = 60  # seconds
+        #self.APPEND_MODE = "write"
+        #self.APPEND_MODE = "append_lock"
+        self.APPEND_MODE = "append_nolock"
         # enable directio except tmpfs -> nodirectio
         self.DIRECTIOS = ["bufferedio", "directio"]
         self.MEDIA_TYPES = ["ssd", "hdd", "ramdisk", "nvme", "mem"]
@@ -220,8 +223,8 @@ class Runner(object):
         test_hw_thr_cnts = hw_thr_cnts_map.get(self.CORE_GRAIN,
                                                cpupol.test_hw_thr_cnts_fine_grain)
         for n in test_hw_thr_cnts:
-            if n > self.npcpu:
-                break
+            #if n > self.npcpu:
+            #    break
             ncores.append(n)
         return ncores
 
@@ -359,12 +362,16 @@ class Runner(object):
         (rc, dev_path) = self.init_media(media)
         if not rc:
             return False
+        #p = self.exec_cmd("sudo mkfs.f2fs -m -f /dev/nvme1n1 -c /dev/nvme0n2 -d2",
         p = self.exec_cmd("sudo mkfs.f2fs -m -f /dev/nvme0n1 -c /dev/nvme1n2 -d2",
                           self.dev_null)
         if p.returncode != 0:
             return False
-        p = self.exec_cmd("sudo mount -t f2fs /dev/nvme0n1 "+mnt_path,
+        #p = self.exec_cmd("sudo mount -t f2fs /dev/nvme1n1 "+mnt_path,
+        p = self.exec_cmd("sudo mount -t f2fs -o zone_append="+self.APPEND_MODE+" /dev/nvme0n1 "+mnt_path,
                           self.dev_null)
+        #p = self.exec_cmd("sudo mount -t f2fs /dev/nvme0n1 "+mnt_path,
+         #                 self.dev_null)
         #p = self.exec_cmd(' '.join(["sudo mount -t", f+,
          #                           dev_path, mnt_path]),
           #                self.dev_null)
@@ -555,11 +562,31 @@ if __name__ == "__main__":
         #(Runner.CORE_FINE_GRAIN,
         # PerfMon.LEVEL_LOW,
         # ("ramdisk", "*", "*", "*", "*")),
+        # (Runner.CORE_FINE_GRAIN,
+	    #  PerfMon.LEVEL_LOW,
+        #  ("nvme", "f2fs", "DWOL", "1", "bufferedio")),
          (Runner.CORE_FINE_GRAIN,
-          PerfMon.LEVEL_LOW,
-        # ("nvme", "*", "*", "*", "*")),
-        #  ("nvme", "f2fs", "DWOL", "32", "directio")),
-          ("nvme", "f2fs", "DWOM", "32", "directio")),
+	      PerfMon.LEVEL_LOW,
+          ("nvme", "f2fs", "DWOL", "64", "bufferedio")),
+#		 (Runner.CORE_FINE_GRAIN,
+#          PerfMon.LEVEL_LOW,
+#          ("nvme", "f2fs", "DWOM", "32", "directio")),
+#         (Runner.CORE_FINE_GRAIN,
+#          PerfMon.LEVEL_LOW,
+#          ("nvme", "f2fs", "DWAL", "32", "directio")),
+#         (Runner.CORE_FINE_GRAIN,
+#          PerfMon.LEVEL_LOW,
+#          ("nvme", "f2fs", "DWSL", "32", "directio")),
+#         (Runner.CORE_FINE_GRAIN,
+#          PerfMon.LEVEL_LOW,
+#          ("nvme", "f2fs", "MWCL", "32", "directio")),
+#         (Runner.CORE_FINE_GRAIN,
+#          PerfMon.LEVEL_LOW,
+#          ("nvme", "f2fs", "MWCM", "32", "directio")),
+#         (Runner.CORE_FINE_GRAIN,
+#          PerfMon.LEVEL_LOW,
+#          ("nvme", "f2fs", "MWUL", "32", "directio")),
+        #  ("nvme", "f2fs", "DWOM", "32", "directio")),
         # ("nvme", "f2fs", "DWAL", "8", "bufferedio")),
         # ("nvme", "*", "DWTL", "16", "*")),
         # ("mem", "tmpfs", "filebench_varmail", "32", "directio")),
