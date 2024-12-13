@@ -142,7 +142,7 @@ class Plotter(object):
 
         fs = fs_list[0]
         # print("plot [0:][0:] \'%s\' using 1:2 title \'%s\' %s"
-        print("plot [0:64][0:0.5] \'%s\' using 1:2 title \'%s\' %s"
+        print("plot [0:70][0:0.4] \'%s\' using 1:2 title \'%s\' %s"
               % (_get_data_file(fs), fs, _get_sc_style(fs)),
               end="", file=self.out)
         for fs in fs_list[1:]:
