@@ -95,7 +95,7 @@ class Plotter(object):
         # print("set term pdfcairo size %sin,%sin font \',10\'" %
         #     (self.UNIT_WIDTH * n_col, self.UNIT_HEIGHT * n_row),
         #     file=self.out)
-        print("set term pdfcairo size 4in,6in font \',12\' linewidth 2", file=self.out)
+        print("set term pdfcairo size 10in,4in font \',12\' linewidth 2", file=self.out)
 		#print("set term pdfcairo size %sin,%sin font \',12\' linewidth 2" %
         #      (self.UNIT_WIDTH * (n_col+1), self.UNIT_HEIGHT * (n_row+1)),
         #      file=self.out)
