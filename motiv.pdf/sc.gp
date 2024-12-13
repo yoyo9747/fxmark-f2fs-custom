@@ -22,7 +22,7 @@ set key top right font ',24'
 
 set xlabel '# cores' font ',24'
 set ylabel 'M ops/sec' font ',24'
-plot [0:70][0:0.4] 'nvme:append model:DWOL:directio.dat' using 1:2 title 'append model' with lp ps 0.5, 'nvme:write model:DWOL:directio.dat' using 1:2 title 'write model' with lp ps 0.5
+plot [0:70][0:0.3] 'nvme:append model:DWOL:directio.dat' using 1:2 title 'append model' with lp ps 0.5, 'nvme:write model:DWOL:directio.dat' using 1:2 title 'write model' with lp ps 0.5
 
 unset multiplot
 set output
