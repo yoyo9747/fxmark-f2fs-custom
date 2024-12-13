@@ -51,8 +51,8 @@ class Runner(object):
         self.DISK_SIZE = "64G"
         self.DURATION = 60  # seconds
         #self.APPEND_MODE = "write"
-        #self.APPEND_MODE = "append_lock"
-        self.APPEND_MODE = "append_nolock"
+        self.APPEND_MODE = "append_lock"
+        #self.APPEND_MODE = "append_nolock"
         # enable directio except tmpfs -> nodirectio
         self.DIRECTIOS = ["bufferedio", "directio"]
         self.MEDIA_TYPES = ["ssd", "hdd", "ramdisk", "nvme", "mem"]
@@ -562,27 +562,27 @@ if __name__ == "__main__":
         #(Runner.CORE_FINE_GRAIN,
         # PerfMon.LEVEL_LOW,
         # ("ramdisk", "*", "*", "*", "*")),
-        # (Runner.CORE_FINE_GRAIN,
-	    #  PerfMon.LEVEL_LOW,
-        #  ("nvme", "f2fs", "DWOL", "1", "directio")),
-        # (Runner.CORE_FINE_GRAIN,
-	    #  PerfMon.LEVEL_LOW,
-        #  ("nvme", "f2fs", "DWOL", "2", "directio")),
-        # (Runner.CORE_FINE_GRAIN,
-	    #  PerfMon.LEVEL_LOW,
-        #  ("nvme", "f2fs", "DWOL", "4", "directio")),
-        # (Runner.CORE_FINE_GRAIN,
-	    #  PerfMon.LEVEL_LOW,
-        #  ("nvme", "f2fs", "DWOL", "8", "directio")),
-        # (Runner.CORE_FINE_GRAIN,
-	    #  PerfMon.LEVEL_LOW,
-        #  ("nvme", "f2fs", "DWOL", "16", "directio")),
+         (Runner.CORE_FINE_GRAIN,
+	      PerfMon.LEVEL_LOW,
+          ("nvme", "f2fs", "DWOL", "1", "directio")),
+         (Runner.CORE_FINE_GRAIN,
+	      PerfMon.LEVEL_LOW,
+          ("nvme", "f2fs", "DWOL", "2", "directio")),
+         (Runner.CORE_FINE_GRAIN,
+	      PerfMon.LEVEL_LOW,
+          ("nvme", "f2fs", "DWOL", "4", "directio")),
+         (Runner.CORE_FINE_GRAIN,
+	      PerfMon.LEVEL_LOW,
+          ("nvme", "f2fs", "DWOL", "8", "directio")),
+         (Runner.CORE_FINE_GRAIN,
+	      PerfMon.LEVEL_LOW,
+          ("nvme", "f2fs", "DWOL", "16", "directio")),
+         (Runner.CORE_FINE_GRAIN,
+	      PerfMon.LEVEL_LOW,
+          ("nvme", "f2fs", "DWOL", "32", "directio")),
          (Runner.CORE_FINE_GRAIN,
 	      PerfMon.LEVEL_LOW,
           ("nvme", "f2fs", "DWOL", "64", "directio")),
-        # (Runner.CORE_FINE_GRAIN,
-	    #  PerfMon.LEVEL_LOW,
-        #  ("nvme", "f2fs", "DWOL", "64", "directio")),
 #		 (Runner.CORE_FINE_GRAIN,
 #          PerfMon.LEVEL_LOW,
 #          ("nvme", "f2fs", "DWOM", "32", "directio")),
