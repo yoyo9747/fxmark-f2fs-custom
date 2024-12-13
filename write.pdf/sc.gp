@@ -14,7 +14,7 @@
 # SMT_LEVEL = 2
 # NUM_TEST_CONF = 1
 
-set term pdfcairo size 6.8999999999999995in,4.6in font ',12' linewidth 2
+set term pdfcairo size 6in,4in font ',12' linewidth 2
 set_out='set output "`if test -z $OUT; then echo sc.pdf; else echo $OUT; fi`"'
 eval set_out
 set multiplot layout 1,2
