@@ -18,11 +18,12 @@ set term pdfcairo size 4.6in,2.3in font ',10'
 set_out='set output "`if test -z $OUT; then echo sc.pdf; else echo $OUT; fi`"'
 eval set_out
 set multiplot layout 1,2
+set key top right
 
 set title 'nvme:DWOL:directio'
 set xlabel '# cores'
 set ylabel 'M ops/sec'
-plot [0:][0:] 'nvme:P-append model:DWOL:directio.dat' using 1:2 title 'P-append model' with lp ps 0.5, 'nvme:append model:DWOL:directio.dat' using 1:2 title 'append model' with lp ps 0.5, 'nvme:write model:DWOL:directio.dat' using 1:2 title 'write model' with lp ps 0.5
+plot [0:64][0:] 'nvme:P-append model:DWOL:directio.dat' using 1:2 title 'P-append model' with lp ps 0.5, 'nvme:append model:DWOL:directio.dat' using 1:2 title 'append model' with lp ps 0.5, 'nvme:write model:DWOL:directio.dat' using 1:2 title 'write model' with lp ps 0.5
 
 unset multiplot
 set output
