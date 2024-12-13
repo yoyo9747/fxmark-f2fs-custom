@@ -136,7 +136,7 @@ class Plotter(object):
 
         # gen gp file
         print("", file=self.out)
-        print("set title \'%s:%s:%s\'" % (media, bench, iomode), file=self.out)
+        #print("set title \'%s:%s:%s\'" % (media, bench, iomode), file=self.out)
         print("set xlabel \'# cores\'", file=self.out)
         print("set ylabel \'%s\'" % "M ops/sec", file=self.out)
 
@@ -160,8 +160,8 @@ class Plotter(object):
         print("set style fill solid 1.0 border -1", file=self.out)
         print("set ytics 10", file=self.out)
         print("", file=self.out)
-        print("set title \'%s:%s:*:%s:%s\'" %
-              (media, bench, ncore, iomode), file=self.out)
+        #print("set title \'%s:%s:*:%s:%s\'" %
+        #      (media, bench, ncore, iomode), file=self.out)
         print("set xlabel \'\'", file=self.out)
         print("set ylabel \'CPU utilization\'", file=self.out)
         print("set yrange [0:100]", file=self.out)
