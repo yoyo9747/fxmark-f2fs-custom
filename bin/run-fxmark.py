@@ -51,8 +51,8 @@ class Runner(object):
         self.DISK_SIZE = "64G"
         self.DURATION = 60  # seconds
         #self.APPEND_MODE = "write"
-        self.APPEND_MODE = "append_lock"
-        #self.APPEND_MODE = "append_nolock"
+        #self.APPEND_MODE = "append_lock"
+        self.APPEND_MODE = "append_nolock"
         # enable directio except tmpfs -> nodirectio
         self.DIRECTIOS = ["bufferedio", "directio"]
         self.MEDIA_TYPES = ["ssd", "hdd", "ramdisk", "nvme", "mem"]
@@ -564,25 +564,25 @@ if __name__ == "__main__":
         # ("ramdisk", "*", "*", "*", "*")),
          (Runner.CORE_FINE_GRAIN,
 	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", "DWAL", "1", "directio")),
+          ("nvme", "f2fs", "DWOM", "1", "directio")),
          (Runner.CORE_FINE_GRAIN,
 	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", "DWAL", "2", "directio")),
+          ("nvme", "f2fs", "DWOM", "2", "directio")),
          (Runner.CORE_FINE_GRAIN,
 	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", "DWAL", "4", "directio")),
+          ("nvme", "f2fs", "DWOM", "4", "directio")),
          (Runner.CORE_FINE_GRAIN,
 	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", "DWAL", "8", "directio")),
+          ("nvme", "f2fs", "DWOM", "8", "directio")),
          (Runner.CORE_FINE_GRAIN,
 	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", "DWAL", "16", "directio")),
+          ("nvme", "f2fs", "DWOM", "16", "directio")),
          (Runner.CORE_FINE_GRAIN,
 	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", "DWAL", "32", "directio")),
+          ("nvme", "f2fs", "DWOM", "32", "directio")),
          (Runner.CORE_FINE_GRAIN,
 	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", "DWAL", "64", "directio")),
+          ("nvme", "f2fs", "DWOM", "64", "directio")),
 #		 (Runner.CORE_FINE_GRAIN,
 #          PerfMon.LEVEL_LOW,
 #          ("nvme", "f2fs", "DWOM", "32", "directio")),

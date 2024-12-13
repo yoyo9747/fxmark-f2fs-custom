@@ -92,9 +92,17 @@ class Plotter(object):
         n_unit = len(self.config["media"]) * len(self.config["bench"]) * 2
         n_col = min(n_unit, int(self.PAPER_WIDTH / self.UNIT_WIDTH))
         n_row = math.ceil(float(n_unit) / float(n_col))
-        print("set term pdfcairo size %sin,%sin font \',10\'" %
+        # print("set term pdfcairo size %sin,%sin font \',10\'" %
+        #     (self.UNIT_WIDTH * n_col, self.UNIT_HEIGHT * n_row),
+        #     file=self.out)
+        print("set term pdfcairo size %sin,%sin font \',12\' linewidth 2" %
               (self.UNIT_WIDTH * n_col, self.UNIT_HEIGHT * n_row),
               file=self.out)
+        print("set lmargin 0", file=self.out)
+        print("set rmargin 0", file=self.out)
+        print("set tmargin 0", file=self.out)
+        print("set bmargin 0", file=self.out)
+
         print("set_out=\'set output \"`if test -z $OUT; then echo %s; else echo $OUT; fi`\"\'"
               % self._get_pdf_name(), file=self.out)
         print("eval set_out", file=self.out)
@@ -128,7 +136,7 @@ class Plotter(object):
                 print("# %s:%s:%s:%s:*" % (media, fs, bench, iomode), file=out)
                 for d_kv in data:
                     d_kv = d_kv[1]
-                    #if int(d_kv["ncpu"]) > self.ncore:
+                    # if int(d_kv["ncpu"]) > self.ncore:
                     #    break
                     print("%s %s" %
                           (d_kv["ncpu"], float(d_kv["works/sec"]) / self.UNIT),
@@ -136,7 +144,7 @@ class Plotter(object):
 
         # gen gp file
         print("", file=self.out)
-        #print("set title \'%s:%s:%s\'" % (media, bench, iomode), file=self.out)
+        # print("set title \'%s:%s:%s\'" % (media, bench, iomode), file=self.out)
         print("set xlabel \'# cores\'", file=self.out)
         print("set ylabel \'%s\'" % "M ops/sec", file=self.out)
 
@@ -160,7 +168,7 @@ class Plotter(object):
         print("set style fill solid 1.0 border -1", file=self.out)
         print("set ytics 10", file=self.out)
         print("", file=self.out)
-        #print("set title \'%s:%s:*:%s:%s\'" %
+        # print("set title \'%s:%s:*:%s:%s\'" %
         #      (media, bench, ncore, iomode), file=self.out)
         print("set xlabel \'\'", file=self.out)
         print("set ylabel \'CPU utilization\'", file=self.out)
