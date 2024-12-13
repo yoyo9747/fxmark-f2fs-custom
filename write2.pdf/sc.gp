@@ -18,10 +18,10 @@ set term pdfcairo size 10in,4in font ',12' linewidth 2
 set_out='set output "`if test -z $OUT; then echo sc.pdf; else echo $OUT; fi`"'
 eval set_out
 set multiplot layout 1,2
-set key top right
+set key top right font ',18'
 
-set xlabel '# cores' font ',14'
-set ylabel 'M ops/sec' font ',14'
+set xlabel '# cores' font ',18'
+set ylabel 'M ops/sec' font ',18'
 plot [0:70][0:0.4] 'nvme:P-append model:DWAL:directio.dat' using 1:2 title 'P-append model' with lp ps 0.5, 'nvme:append model:DWAL:directio.dat' using 1:2 title 'append model' with lp ps 0.5, 'nvme:write model:DWAL:directio.dat' using 1:2 title 'write model' with lp ps 0.5
 
 unset multiplot

@@ -110,7 +110,8 @@ class Plotter(object):
               % self._get_pdf_name(), file=self.out)
         print("eval set_out", file=self.out)
         print("set multiplot layout %s,%s" % (n_row, n_col), file=self.out)
-        print("set key top right", file=self.out)
+        # print("set key top right", file=self.out)
+        print("set key top right font \',18\'", file=self.out)
 
     def _plot_footer(self):
         print("", file=self.out)
@@ -150,8 +151,8 @@ class Plotter(object):
         # print("set title \'%s:%s:%s\'" % (media, bench, iomode), file=self.out)
         # print("set xlabel \'# cores\'", file=self.out)
         # print("set ylabel \'%s\'" % "M ops/sec", file=self.out)
-        print("set xlabel \'# cores\' font \',14\'", file=self.out)
-        print("set ylabel \'M ops/sec\' font \',14\'", file=self.out)
+        print("set xlabel \'# cores\' font \',18\'", file=self.out)
+        print("set ylabel \'M ops/sec\' font \',18\'", file=self.out)
 
         fs = fs_list[0]
         # print("plot [0:][0:] \'%s\' using 1:2 title \'%s\' %s"
