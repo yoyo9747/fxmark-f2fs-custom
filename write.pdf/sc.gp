@@ -1,4 +1,4 @@
-# LOG_FILE = logs/2024-12-13-14-36-13.579533/fxmark.log
+# LOG_FILE = logs/fxmark/fxmark.log
 # SYSTEM = Linux saturn02 6.10.0+ #4 SMP PREEMPT_DYNAMIC Fri Dec 13 06:35:47 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 # DISK_SIZE = 64G
 # DURATION = 60s
@@ -22,7 +22,7 @@ set multiplot layout 1,2
 set title 'nvme:DWOL:directio'
 set xlabel '# cores'
 set ylabel 'M ops/sec'
-plot [0:][0:] 'nvme:f2fs:DWOL:directio.dat' using 1:2 title 'f2fs' with lp ps 0.5
+plot [0:][0:] 'nvme:write model:DWOL:directio.dat' using 1:2 title 'write model' with lp ps 0.5
 
 unset multiplot
 set output
