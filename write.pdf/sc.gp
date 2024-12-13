@@ -20,8 +20,8 @@ eval set_out
 set multiplot layout 1,2
 set key top right
 
-set xlabel '# cores'
-set ylabel 'M ops/sec'
+set xlabel '# cores' font ',14'
+set ylabel 'M ops/sec' font ',14'
 plot [0:70][0:0.4] 'nvme:P-append model:DWOL:directio.dat' using 1:2 title 'P-append model' with lp ps 0.5, 'nvme:append model:DWOL:directio.dat' using 1:2 title 'append model' with lp ps 0.5, 'nvme:write model:DWOL:directio.dat' using 1:2 title 'write model' with lp ps 0.5
 
 unset multiplot

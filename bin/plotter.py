@@ -95,14 +95,16 @@ class Plotter(object):
         # print("set term pdfcairo size %sin,%sin font \',10\'" %
         #     (self.UNIT_WIDTH * n_col, self.UNIT_HEIGHT * n_row),
         #     file=self.out)
-        print("set term pdfcairo size 10in,4in font \',12\' linewidth 2", file=self.out)
-		#print("set term pdfcairo size %sin,%sin font \',12\' linewidth 2" %
+        print(
+            "set term pdfcairo size 10in,4in font \',12\' linewidth 2",
+            file=self.out)
+        # print("set term pdfcairo size %sin,%sin font \',12\' linewidth 2" %
         #      (self.UNIT_WIDTH * (n_col+1), self.UNIT_HEIGHT * (n_row+1)),
         #      file=self.out)
-        #print("set lmargin 0", file=self.out)
-        #print("set rmargin 0", file=self.out)
-        #print("set tmargin 0", file=self.out)
-        #print("set bmargin 0", file=self.out)
+        # print("set lmargin 0", file=self.out)
+        # print("set rmargin 0", file=self.out)
+        # print("set tmargin 0", file=self.out)
+        # print("set bmargin 0", file=self.out)
 
         print("set_out=\'set output \"`if test -z $OUT; then echo %s; else echo $OUT; fi`\"\'"
               % self._get_pdf_name(), file=self.out)
@@ -146,8 +148,10 @@ class Plotter(object):
         # gen gp file
         print("", file=self.out)
         # print("set title \'%s:%s:%s\'" % (media, bench, iomode), file=self.out)
-        print("set xlabel \'# cores\'", file=self.out)
-        print("set ylabel \'%s\'" % "M ops/sec", file=self.out)
+        # print("set xlabel \'# cores\'", file=self.out)
+        # print("set ylabel \'%s\'" % "M ops/sec", file=self.out)
+        print("set xlabel \'# cores\' font \',14\'", file=self.out)
+        print("set ylabel \'M ops/sec\' font \',14\'", file=self.out)
 
         fs = fs_list[0]
         # print("plot [0:][0:] \'%s\' using 1:2 title \'%s\' %s"
