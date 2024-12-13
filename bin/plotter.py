@@ -96,7 +96,7 @@ class Plotter(object):
         #     (self.UNIT_WIDTH * n_col, self.UNIT_HEIGHT * n_row),
         #     file=self.out)
         print("set term pdfcairo size %sin,%sin font \',12\' linewidth 2" %
-              (self.UNIT_WIDTH * n_col, self.UNIT_HEIGHT * n_row),
+              (self.UNIT_WIDTH * (n_col+1), self.UNIT_HEIGHT * (n_row+1)),
               file=self.out)
         #print("set lmargin 0", file=self.out)
         #print("set rmargin 0", file=self.out)
