@@ -98,10 +98,10 @@ class Plotter(object):
         print("set term pdfcairo size %sin,%sin font \',12\' linewidth 2" %
               (self.UNIT_WIDTH * n_col, self.UNIT_HEIGHT * n_row),
               file=self.out)
-        print("set lmargin 0", file=self.out)
-        print("set rmargin 0", file=self.out)
-        print("set tmargin 0", file=self.out)
-        print("set bmargin 0", file=self.out)
+        #print("set lmargin 0", file=self.out)
+        #print("set rmargin 0", file=self.out)
+        #print("set tmargin 0", file=self.out)
+        #print("set bmargin 0", file=self.out)
 
         print("set_out=\'set output \"`if test -z $OUT; then echo %s; else echo $OUT; fi`\"\'"
               % self._get_pdf_name(), file=self.out)
