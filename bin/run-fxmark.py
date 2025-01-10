@@ -50,8 +50,8 @@ class Runner(object):
         # bench config
         self.DISK_SIZE = "1024G"
         self.DURATION = 60  # seconds
-        #self.APPEND_MODE = "write"
-        self.APPEND_MODE = "append_lock"
+        self.APPEND_MODE = "write"
+        #self.APPEND_MODE = "append_lock"
         #self.APPEND_MODE = "append_nolock"
         # enable directio except tmpfs -> nodirectio
         self.DIRECTIOS = ["bufferedio", "directio"]
