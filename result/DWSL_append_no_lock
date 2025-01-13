@@ -29,7 +29,7 @@ fxmark start
 # INFO: DirectIO Enabled
 # ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
 
-1 60.000009 1321048.000000 22017.463364 60.039 0.22 0 59.81 0 0 0 0.01 0 0 0.366428 0 99.6186 0 0 0 0.0166558 0 0
+1 60.000014 1228194.000000 20469.895224 60.0388 0.19 0 18.83 0 32.82 0 0 0 0 0.316462 0 31.3631 0 54.6647 0 0 0 0
 
 ### NUM_TEST_CONF  = 1
 umount2
@@ -59,7 +59,7 @@ fxmark start
 # INFO: DirectIO Enabled
 # ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
 
-2 60.000014 2210169.000000 36836.141405 60.039 0.35 0 119.61 0.04 0.08 0 0 0 0 0.291477 0 99.6102 0.0333117 0.0666233 0 0 0 0
+2 60.000033 2098835.000000 34980.564094 60.0385 0.39 0 43.53 0.67 58.94 0 0 0 0 0.324792 0 36.2518 0.557976 49.0852 0 0 0 0
 
 ### NUM_TEST_CONF  = 1
 umount2
@@ -89,7 +89,7 @@ fxmark start
 # INFO: DirectIO Enabled
 # ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
 
-4 60.000037 3155373.000000 52589.517351 60.0394 0.65 0 200.7 36.05 0.18 0 0 0 0 0.270656 0 83.5701 15.011 0.0749508 0 0 0 0
+4 60.000023 3444081.000000 57401.327518 60.0397 0.73 0 83.71 2.24 123.93 0 0 0 0 0.303965 0 34.8561 0.932716 51.6033 0 0 0 0
 
 ### NUM_TEST_CONF  = 1
 umount2
@@ -119,7 +119,7 @@ fxmark start
 # INFO: DirectIO Enabled
 # ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
 
-8 60.000073 3656428.000000 60940.392142 60.0485 1.52 0 350.33 113.79 0.56 0 0 0 0 0.316411 0 72.9265 23.6871 0.116572 0 0 0 0
+8 60.000062 5007315.000000 83455.163589 60.0404 1.03 0 145.98 4.1 283.05 0 0 0 0 0.214439 0 30.392 0.853592 58.9291 0 0 0 0
 
 ### NUM_TEST_CONF  = 1
 umount2
@@ -149,7 +149,7 @@ fxmark start
 # INFO: DirectIO Enabled
 # ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
 
-16 60.000103 4873248.000000 81220.660571 60.0481 2.94 0 660.35 270.49 1.14 0 0.01 0 0 0.306005 0 68.7314 28.1535 0.118655 0 0.00104083 0 0
+16 60.000114 7040035.000000 117333.693610 60.041 1.56 0 257.28 8.38 604.71 0 0.01 0 0 0.162389 0 26.7817 0.872321 62.9476 0 0.00104096 0 0
 
 ### NUM_TEST_CONF  = 1
 umount2
@@ -179,7 +179,7 @@ fxmark start
 # INFO: DirectIO Enabled
 # ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
 
-24 60.000093 5672906.000000 94548.286390 60.0399 1.44 0 1106.27 313.21 1.96 0 0 0 0 0.0999336 0 76.7733 21.7363 0.136021 0 0 0 0
+24 60.000091 7297681.000000 121627.832282 60.0407 1.71 0 615.29 48.85 650.72 0 0.04 0 0 0.11867 0 42.6995 3.39006 45.1583 0 0.0027759 0 0
 
 ### NUM_TEST_CONF  = 1
 umount2
@@ -209,7 +209,7 @@ fxmark start
 # INFO: DirectIO Enabled
 # ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
 
-32 60.000491 4726839.000000 78780.005768 60.0529 2.15 0 1344.02 548.37 3.4 0 0.02 0 0 0.111881 0 69.9394 28.5358 0.176927 0 0.00104075 0 0
+32 60.000108 7877280.000000 131287.764092 60.0413 2.04 0 914.31 148.1 721.13 0 0.06 0 0 0.106177 0 47.5875 7.70823 37.533 0 0.00312285 0 0
 
 ### NUM_TEST_CONF  = 1
 umount2
@@ -239,7 +239,7 @@ fxmark start
 # INFO: DirectIO Enabled
 # ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
 
-48 60.001360 3076549.000000 51274.654673 60.0533 2.72 0 1342.31 1501.69 3.28 0 0.05 0 0 0.0943606 0 46.5666 52.0957 0.113788 0 0.00173457 0 0
+48 60.000237 8717675.000000 145294.008312 60.0414 2.77 0 1479.97 531.77 700.21 0 0.04 0 0 0.0961143 0 51.3524 18.4515 24.2961 0 0.00138793 0 0
 
 ### NUM_TEST_CONF  = 1
 umount2
@@ -269,7 +269,7 @@ fxmark start
 # INFO: DirectIO Enabled
 # ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
 
-64 60.002231 2918514.000000 48640.091450 60.0558 3.01 0 1577.03 2212.76 5.32 0 0.04 0 0 0.0783126 0 41.0303 57.5704 0.138413 0 0.0010407 0 0
+64 60.000272 9141008.000000 152349.441532 60.0423 2.9 0 1972.29 1072.9 631.84 0 0.06 0 0 0.0754676 0 51.3255 27.9204 16.4426 0 0.0015614 0 0
 
 ### NUM_TEST_CONF  = 1
 umount2
