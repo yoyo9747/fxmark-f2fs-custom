@@ -1,0 +1,277 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% WARNING! WARNING! WARNING! WARNING! WARNING!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+### SYSTEM         = Linux saturn02 6.12.0+ #8 SMP PREEMPT_DYNAMIC Fri Jan  3 10:02:34 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+### DISK_SIZE      = 1024G
+### DURATION       = 60s
+### DIRECTIO       = bufferedio,directio
+### MEDIA_TYPES    = ssd,hdd,ramdisk,nvme,mem
+### FS_TYPES       = ext4,xfs,btrfs,f2fs
+### BENCH_TYPES    = DWAL,DWOL,DWOM,DWSL,DRBH,DRBM,DRBL,DRBM_bg
+### NCORES         = 1,2,4,8,16,24,32,48,64
+### CORE_SEQ       = 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63
+
+
+### MODEL_NAME     = Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+### PHYSICAL_CHIPS = 2
+### CORE_PER_CHIP  = 16
+### SMT_LEVEL      = 2
+
+
+0 nvme f2fs DWOM 1 directio
+mount
+mount f2fs  /home/yoyo/fxmark-f2fs-custom/bin/root
+## nvme:f2fs:DWOM:1:directio
+fxmark start
+# INFO: DirectIO Enabled
+# ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
+
+1 60.000020 2411445.000000 40190.736603 60.0383 0.14 0 59.89 0 0 0 0 0 0 0.233185 0 99.753 0 0 0 0 0 0
+
+### NUM_TEST_CONF  = 1
+umount2
+umount
+### SYSTEM         = Linux saturn02 6.12.0+ #8 SMP PREEMPT_DYNAMIC Fri Jan  3 10:02:34 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+### DISK_SIZE      = 1024G
+### DURATION       = 60s
+### DIRECTIO       = bufferedio,directio
+### MEDIA_TYPES    = ssd,hdd,ramdisk,nvme,mem
+### FS_TYPES       = ext4,xfs,btrfs,f2fs
+### BENCH_TYPES    = DWAL,DWOL,DWOM,DWSL,DRBH,DRBM,DRBL,DRBM_bg
+### NCORES         = 1,2,4,8,16,24,32,48,64
+### CORE_SEQ       = 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63
+
+
+### MODEL_NAME     = Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+### PHYSICAL_CHIPS = 2
+### CORE_PER_CHIP  = 16
+### SMT_LEVEL      = 2
+
+
+0 nvme f2fs DWOM 2 directio
+mount
+mount f2fs  /home/yoyo/fxmark-f2fs-custom/bin/root
+## nvme:f2fs:DWOM:2:directio
+fxmark start
+# INFO: DirectIO Enabled
+# ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
+
+2 60.000031 2735773.000000 45596.192729 60.038 0.27 0 119.76 0.21 0.04 0 0 0 0 0.224858 0 99.7368 0.174889 0.0333122 0 0 0 0
+
+### NUM_TEST_CONF  = 1
+umount2
+umount
+### SYSTEM         = Linux saturn02 6.12.0+ #8 SMP PREEMPT_DYNAMIC Fri Jan  3 10:02:34 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+### DISK_SIZE      = 1024G
+### DURATION       = 60s
+### DIRECTIO       = bufferedio,directio
+### MEDIA_TYPES    = ssd,hdd,ramdisk,nvme,mem
+### FS_TYPES       = ext4,xfs,btrfs,f2fs
+### BENCH_TYPES    = DWAL,DWOL,DWOM,DWSL,DRBH,DRBM,DRBL,DRBM_bg
+### NCORES         = 1,2,4,8,16,24,32,48,64
+### CORE_SEQ       = 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63
+
+
+### MODEL_NAME     = Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+### PHYSICAL_CHIPS = 2
+### CORE_PER_CHIP  = 16
+### SMT_LEVEL      = 2
+
+
+0 nvme f2fs DWOM 4 directio
+mount
+mount f2fs  /home/yoyo/fxmark-f2fs-custom/bin/root
+## nvme:f2fs:DWOM:4:directio
+fxmark start
+# INFO: DirectIO Enabled
+# ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
+
+4 60.000059 3614141.000000 60235.624102 60.0397 0.47 0 168.08 59.71 4.95 0 0 0 0 0.195704 0 69.987 24.8627 2.06113 0 0 0 0
+
+### NUM_TEST_CONF  = 1
+umount2
+umount
+### SYSTEM         = Linux saturn02 6.12.0+ #8 SMP PREEMPT_DYNAMIC Fri Jan  3 10:02:34 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+### DISK_SIZE      = 1024G
+### DURATION       = 60s
+### DIRECTIO       = bufferedio,directio
+### MEDIA_TYPES    = ssd,hdd,ramdisk,nvme,mem
+### FS_TYPES       = ext4,xfs,btrfs,f2fs
+### BENCH_TYPES    = DWAL,DWOL,DWOM,DWSL,DRBH,DRBM,DRBL,DRBM_bg
+### NCORES         = 1,2,4,8,16,24,32,48,64
+### CORE_SEQ       = 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63
+
+
+### MODEL_NAME     = Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+### PHYSICAL_CHIPS = 2
+### CORE_PER_CHIP  = 16
+### SMT_LEVEL      = 2
+
+
+0 nvme f2fs DWOM 8 directio
+mount
+mount f2fs  /home/yoyo/fxmark-f2fs-custom/bin/root
+## nvme:f2fs:DWOM:8:directio
+fxmark start
+# INFO: DirectIO Enabled
+# ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
+
+8 60.000124 4520279.000000 75337.827792 60.0397 0.52 0 281.7 166.65 21.45 0 0 0 0 0.108262 0 58.6486 34.6958 4.46579 0 0 0 0
+
+### NUM_TEST_CONF  = 1
+umount2
+umount
+### SYSTEM         = Linux saturn02 6.12.0+ #8 SMP PREEMPT_DYNAMIC Fri Jan  3 10:02:34 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+### DISK_SIZE      = 1024G
+### DURATION       = 60s
+### DIRECTIO       = bufferedio,directio
+### MEDIA_TYPES    = ssd,hdd,ramdisk,nvme,mem
+### FS_TYPES       = ext4,xfs,btrfs,f2fs
+### BENCH_TYPES    = DWAL,DWOL,DWOM,DWSL,DRBH,DRBM,DRBL,DRBM_bg
+### NCORES         = 1,2,4,8,16,24,32,48,64
+### CORE_SEQ       = 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63
+
+
+### MODEL_NAME     = Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+### PHYSICAL_CHIPS = 2
+### CORE_PER_CHIP  = 16
+### SMT_LEVEL      = 2
+
+
+0 nvme f2fs DWOM 16 directio
+mount
+mount f2fs  /home/yoyo/fxmark-f2fs-custom/bin/root
+## nvme:f2fs:DWOM:16:directio
+fxmark start
+# INFO: DirectIO Enabled
+# ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
+
+16 60.000108 5236969.000000 87282.659376 60.0404 0.73 0 428.56 486.2 30.08 0 0.01 0 0 0.0759905 0 44.6116 50.6117 3.13122 0 0.00104097 0 0
+
+### NUM_TEST_CONF  = 1
+umount2
+umount
+### SYSTEM         = Linux saturn02 6.12.0+ #8 SMP PREEMPT_DYNAMIC Fri Jan  3 10:02:34 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+### DISK_SIZE      = 1024G
+### DURATION       = 60s
+### DIRECTIO       = bufferedio,directio
+### MEDIA_TYPES    = ssd,hdd,ramdisk,nvme,mem
+### FS_TYPES       = ext4,xfs,btrfs,f2fs
+### BENCH_TYPES    = DWAL,DWOL,DWOM,DWSL,DRBH,DRBM,DRBL,DRBM_bg
+### NCORES         = 1,2,4,8,16,24,32,48,64
+### CORE_SEQ       = 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63
+
+
+### MODEL_NAME     = Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+### PHYSICAL_CHIPS = 2
+### CORE_PER_CHIP  = 16
+### SMT_LEVEL      = 2
+
+
+0 nvme f2fs DWOM 24 directio
+mount
+mount f2fs  /home/yoyo/fxmark-f2fs-custom/bin/root
+## nvme:f2fs:DWOM:24:directio
+fxmark start
+# INFO: DirectIO Enabled
+# ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
+
+24 60.000264 2782590.000000 46376.296202 60.0515 0.84 0 374.35 1023.84 18.44 0 0.01 0 0 0.0582833 0 25.9742 71.0391 1.27946 0 0.000693849 0 0
+
+### NUM_TEST_CONF  = 1
+umount2
+umount
+### SYSTEM         = Linux saturn02 6.12.0+ #8 SMP PREEMPT_DYNAMIC Fri Jan  3 10:02:34 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+### DISK_SIZE      = 1024G
+### DURATION       = 60s
+### DIRECTIO       = bufferedio,directio
+### MEDIA_TYPES    = ssd,hdd,ramdisk,nvme,mem
+### FS_TYPES       = ext4,xfs,btrfs,f2fs
+### BENCH_TYPES    = DWAL,DWOL,DWOM,DWSL,DRBH,DRBM,DRBL,DRBM_bg
+### NCORES         = 1,2,4,8,16,24,32,48,64
+### CORE_SEQ       = 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63
+
+
+### MODEL_NAME     = Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+### PHYSICAL_CHIPS = 2
+### CORE_PER_CHIP  = 16
+### SMT_LEVEL      = 2
+
+
+0 nvme f2fs DWOM 32 directio
+mount
+mount f2fs  /home/yoyo/fxmark-f2fs-custom/bin/root
+## nvme:f2fs:DWOM:32:directio
+fxmark start
+# INFO: DirectIO Enabled
+# ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
+
+32 60.000757 2327275.000000 38787.427561 60.0519 0.98 0 363.75 1536.36 14.13 0 0 0 0 0.0509976 0 18.9289 79.9496 0.735302 0 0 0 0
+
+### NUM_TEST_CONF  = 1
+umount2
+umount
+### SYSTEM         = Linux saturn02 6.12.0+ #8 SMP PREEMPT_DYNAMIC Fri Jan  3 10:02:34 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+### DISK_SIZE      = 1024G
+### DURATION       = 60s
+### DIRECTIO       = bufferedio,directio
+### MEDIA_TYPES    = ssd,hdd,ramdisk,nvme,mem
+### FS_TYPES       = ext4,xfs,btrfs,f2fs
+### BENCH_TYPES    = DWAL,DWOL,DWOM,DWSL,DRBH,DRBM,DRBL,DRBM_bg
+### NCORES         = 1,2,4,8,16,24,32,48,64
+### CORE_SEQ       = 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63
+
+
+### MODEL_NAME     = Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+### PHYSICAL_CHIPS = 2
+### CORE_PER_CHIP  = 16
+### SMT_LEVEL      = 2
+
+
+0 nvme f2fs DWOM 48 directio
+mount
+mount f2fs  /home/yoyo/fxmark-f2fs-custom/bin/root
+## nvme:f2fs:DWOM:48:directio
+fxmark start
+# INFO: DirectIO Enabled
+# ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
+
+48 60.001164 2293022.000000 38216.291632 60.0526 1.19 0 508.54 2341.92 9.61 0 0 0 0 0.0412833 0 17.6422 81.2455 0.333388 0 0 0 0
+
+### NUM_TEST_CONF  = 1
+umount2
+umount
+### SYSTEM         = Linux saturn02 6.12.0+ #8 SMP PREEMPT_DYNAMIC Fri Jan  3 10:02:34 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+### DISK_SIZE      = 1024G
+### DURATION       = 60s
+### DIRECTIO       = bufferedio,directio
+### MEDIA_TYPES    = ssd,hdd,ramdisk,nvme,mem
+### FS_TYPES       = ext4,xfs,btrfs,f2fs
+### BENCH_TYPES    = DWAL,DWOL,DWOM,DWSL,DRBH,DRBM,DRBL,DRBM_bg
+### NCORES         = 1,2,4,8,16,24,32,48,64
+### CORE_SEQ       = 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63
+
+
+### MODEL_NAME     = Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+### PHYSICAL_CHIPS = 2
+### CORE_PER_CHIP  = 16
+### SMT_LEVEL      = 2
+
+
+0 nvme f2fs DWOM 64 directio
+mount
+mount f2fs  /home/yoyo/fxmark-f2fs-custom/bin/root
+## nvme:f2fs:DWOM:64:directio
+fxmark start
+# INFO: DirectIO Enabled
+# ncpu secs works works/sec real.sec user.sec nice.sec sys.sec idle.sec iowait.sec irq.sec softirq.sec steal.sec guest.sec user.util nice.util sys.util idle.util iowait.util irq.util softirq.util steal.util guest.util
+
+64 60.003249 2107902.000000 35129.797584 60.0556 1.5 0 566 3206.08 8.4 0 0.01 0 0 0.0390263 0 14.7259 83.4144 0.218548 0 0.000260176 0 0
+
+### NUM_TEST_CONF  = 1
+umount2
+umount
+
