@@ -50,9 +50,9 @@ class Runner(object):
         # bench config
         self.DISK_SIZE = "1024G"
         self.DURATION = 60  # seconds
-        self.APPEND_MODE = "write"
+        #self.APPEND_MODE = "write"
         #self.APPEND_MODE = "append_lock"
-        #self.APPEND_MODE = "append_nolock"
+        self.APPEND_MODE = "append_nolock"
         # enable directio except tmpfs -> nodirectio
         self.DIRECTIOS = ["bufferedio", "directio"]
         self.MEDIA_TYPES = ["ssd", "hdd", "ramdisk", "nvme", "mem"]
@@ -362,13 +362,13 @@ class Runner(object):
         (rc, dev_path) = self.init_media(media)
         if not rc:
             return False
-        p = self.exec_cmd("sudo mkfs.f2fs -m -f /dev/nvme1n1 -c /dev/nvme0n2 -d2",
+        p = self.exec_cmd("sudo /home/yoyo/f2fs-tools-1.15.0/mkfs/mkfs.f2fs -m -f /dev/nvme0n1 -c /dev/nvme1n2 -d2",
         #p = self.exec_cmd("sudo mkfs.f2fs -m -f /dev/nvme0n1 -c /dev/nvme1n2 -d2",
                           self.dev_null)
         if p.returncode != 0:
             return False
         #p = self.exec_cmd("sudo mount -t f2fs /dev/nvme1n1 "+mnt_path,
-        p = self.exec_cmd("sudo mount -t f2fs -o zone_append="+self.APPEND_MODE+" /dev/nvme1n1 "+mnt_path,
+        p = self.exec_cmd("sudo mount -t f2fs -o zone_append="+self.APPEND_MODE+" /dev/nvme0n1 "+mnt_path,
                           self.dev_null)
         #p = self.exec_cmd("sudo mount -t f2fs /dev/nvme0n1 "+mnt_path,
          #                 self.dev_null)
@@ -583,9 +583,6 @@ if __name__ == "__main__":
           ("nvme", "f2fs", "DWOL", "16", "directio")),
          (Runner.CORE_FINE_GRAIN,
 	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", "DWOL", "24", "directio")),
-		 (Runner.CORE_FINE_GRAIN,
-          PerfMon.LEVEL_LOW,
           ("nvme", "f2fs", "DWOL", "32", "directio")),
          (Runner.CORE_FINE_GRAIN,
 	      PerfMon.LEVEL_LOW,
