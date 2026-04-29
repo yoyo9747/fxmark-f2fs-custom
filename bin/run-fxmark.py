@@ -121,7 +121,7 @@ class Runner(object):
             "ext3": self.mount_anyfs,
             "ext4": self.mount_anyfs,
             "ext4_no_jnl": self.mount_ext4_no_jnl,
-            "xfs": self.mount_anyfs,
+            "xfs": self.mount_xfs_zns,
             "btrfs": self.mount_anyfs,
             "f2fs": self.mount_f2fs_zns,
             "jfs": self.mount_anyfs,
@@ -362,14 +362,15 @@ class Runner(object):
         (rc, dev_path) = self.init_media(media)
         if not rc:
             return False
-        p = self.exec_cmd("sudo /home/yoyo/f2fs-tools-1.15.0/mkfs/mkfs.f2fs -m -f /dev/nvme0n1 -c /dev/nvme1n2 -d2",
-        #p = self.exec_cmd("sudo mkfs.f2fs -m -f /dev/nvme0n1 -c /dev/nvme1n2 -d2",
+        #p = self.exec_cmd("sudo /home/yoyo/f2fs-tools-1.15.0/mkfs/mkfs.f2fs -m -f /dev/nvme0n1 -c /dev/nvme1n1 -d2",
+        p = self.exec_cmd("sudo mkfs.f2fs -m -f /dev/nvme0n1 -c /dev/nvme1n2 -d2",
                           self.dev_null)
         if p.returncode != 0:
             return False
         #p = self.exec_cmd("sudo mount -t f2fs /dev/nvme1n1 "+mnt_path,
         p = self.exec_cmd("sudo mount -t f2fs -o zone_append="+self.APPEND_MODE+" /dev/nvme0n1 "+mnt_path,
-                          self.dev_null)
+        #p = self.exec_cmd("sudo mount -t f2fs /dev/nvme0n1 "+mnt_path,
+                self.dev_null)
         #p = self.exec_cmd("sudo mount -t f2fs /dev/nvme0n1 "+mnt_path,
          #                 self.dev_null)
         #p = self.exec_cmd(' '.join(["sudo mount -t", f+,
@@ -379,6 +380,38 @@ class Runner(object):
             return False
         p = self.exec_cmd("sudo chmod 777 " + mnt_path,
                           self.dev_null)
+        if p.returncode != 0:
+            return False
+        return True
+
+    def mount_xfs_zns(self, media, fs, mnt_path):
+        print("mount xfs ", mnt_path)
+        (rc, dev_path) = self.init_media(media)
+        if not rc:
+            return False
+
+        # ZNS realtime device reset
+        p = self.exec_cmd("sudo blkzone reset /dev/nvme0n2",
+                      self.dev_null)
+        if p.returncode != 0:
+            return False
+
+        # Create zoned XFS:
+        # main device  = /dev/nvme1n1  (conventional, metadata)
+        # realtime dev = /dev/nvme0n2  (ZNS, file data)
+        p = self.exec_cmd("sudo mkfs.xfs -f -r rtdev=/dev/nvme0n2 /dev/nvme1n1",
+                      self.dev_null)
+        if p.returncode != 0:
+            return False
+
+        # Mount zoned XFS
+        p = self.exec_cmd("sudo mount -t xfs -o rtdev=/dev/nvme0n2 /dev/nvme1n1 " + mnt_path,
+                      self.dev_null)
+        if p.returncode != 0:
+            return False
+
+        p = self.exec_cmd("sudo chmod 777 " + mnt_path,
+                      self.dev_null)
         if p.returncode != 0:
             return False
         return True
@@ -563,66 +596,18 @@ if __name__ == "__main__":
         # PerfMon.LEVEL_LOW,
         # ("ramdisk", "*", "*", "*", "*")),
         #  ("nvme", "f2fs", "filebench_varmail", "16", "directio")),
-		#  (Runner.CORE_FINE_GRAIN,
-	    #  PerfMon.LEVEL_LOW,
+        #  (Runner.CORE_FINE_GRAIN,
+        #  PerfMon.LEVEL_LOW,
         #  ("nvme", "f2fs", "DRBM_bg", "16", "directio")),
          (Runner.CORE_FINE_GRAIN,
-	      PerfMon.LEVEL_LOW,
+          PerfMon.LEVEL_LOW,
           ("nvme", "f2fs", 
-			"DRBH_bg", 
-			"1", 
-			"directio")),
-         (Runner.CORE_FINE_GRAIN,
-	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", 
-			"DRBH_bg", 
-			"2", 
-			"directio")),
-         (Runner.CORE_FINE_GRAIN,
-	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", 
-			"DRBH_bg", 
-			"4", 
-			"directio")),
-         (Runner.CORE_FINE_GRAIN,
-	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", 
-			"DRBH_bg", 
-			"8", 
-			"directio")),
-         (Runner.CORE_FINE_GRAIN,
-	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", 
-			"DRBH_bg", 
-			"16", 
-			"directio")),
-         (Runner.CORE_FINE_GRAIN,
-	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", 
-			"DRBH_bg", 
-			"24", 
-			"directio")),
-         (Runner.CORE_FINE_GRAIN,
-	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", 
-			"DRBH_bg", 
-			"36", 
-			"directio")),
-         (Runner.CORE_FINE_GRAIN,
-	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", 
-			"DRBH_bg", 
-			"48", 
-			"directio")),
-         (Runner.CORE_FINE_GRAIN,
-	      PerfMon.LEVEL_LOW,
-          ("nvme", "f2fs", 
-			"DRBH_bg", 
-			"64", 
-			"directio")),
+            "DWOL", 
+            "16", 
+            "directio")),
 #         (Runner.CORE_FINE_GRAIN,
-#	      PerfMon.LEVEL_LOW,
-#          ("nvme", "f2fs", "DWOM", "64", "directio")),
+#         PerfMon.LEVEL_LOW,
+#          ("nvme", "f2fs", "DWOM", "32", "directio")),
 #         (Runner.CORE_FINE_GRAIN,
 #          PerfMon.LEVEL_LOW,
 #          ("nvme", "f2fs", "DWAL", "32", "directio")),

@@ -44,7 +44,8 @@ CUR_DIR	bin/kibt.py	/^CUR_DIR     = os.path.abspath(os.path.dirname(__file__))$/
 CUR_DIR	bin/parser.py	/^CUR_DIR     = os.path.abspath(os.path.dirname(__file__))$/;"	v
 CUR_DIR	bin/perfmon.py	/^CUR_DIR     = os.path.abspath(os.path.dirname(__file__))$/;"	v
 CUR_DIR	bin/perfstdio.py	/^CUR_DIR = os.path.abspath(os.path.dirname(__file__))$/;"	v
-CUR_DIR	bin/plotter.py	/^CUR_DIR     = os.path.abspath(os.path.dirname(__file__))$/;"	v
+CUR_DIR	bin/plotter.py	/^CUR_DIR = os.path.abspath(os.path.dirname(__file__))$/;"	v
+CUR_DIR	bin/plotter2.py	/^CUR_DIR = os.path.abspath(os.path.dirname(__file__))$/;"	v
 CUR_DIR	bin/run-dbench.py	/^CUR_DIR = os.path.abspath(os.path.dirname(__file__))$/;"	v
 CUR_DIR	bin/run-filebench.py	/^CUR_DIR = os.path.abspath(os.path.dirname(__file__))$/;"	v
 CUR_DIR	bin/run-fxmark.py	/^CUR_DIR = os.path.abspath(os.path.dirname(__file__))$/;"	v
@@ -104,6 +105,7 @@ PerfMon	bin/perfmon.py	/^class PerfMon(object):$/;"	c
 PerfStdio	bin/perfstdio.py	/^class PerfStdio(object):$/;"	c
 Plot results	README.md	/^Plot results$/;"	s	chapter:FxMark: Filesystem Multicore Scalability Benchmark
 Plotter	bin/plotter.py	/^class Plotter(object):$/;"	c
+Plotter	bin/plotter2.py	/^class Plotter(object):$/;"	c
 Publications	README.md	/^Publications$/;"	s	chapter:FxMark: Filesystem Multicore Scalability Benchmark
 Q	Makefile	/^  Q = @$/;"	m
 Q	Makefile	/^  Q =$/;"	m
@@ -168,12 +170,14 @@ __init__	bin/parser.py	/^    def __init__(self):$/;"	m	class:Parser
 __init__	bin/perfmon.py	/^    def __init__(self, \\$/;"	m	class:PerfMon
 __init__	bin/perfstdio.py	/^    def __init__(self, dir_name, out_dir_name = None):$/;"	m	class:PerfStdio
 __init__	bin/plotter.py	/^    def __init__(self, log_file):$/;"	m	class:Plotter
+__init__	bin/plotter2.py	/^    def __init__(self, log_file):$/;"	m	class:Plotter
 __init__	bin/run-dbench.py	/^    def __init__(self, type_, ncore_, duration_, root_,$/;"	m	class:DBench
 __init__	bin/run-filebench.py	/^    def __init__(self, type_, ncore_, duration_, root_,$/;"	m	class:FileBench
 __init__	bin/run-fxmark.py	/^    def __init__(self,$/;"	m	class:Runner
 __openmsr	bin/cpuinfo.py	/^    def __openmsr(self, msr, mode):$/;"	m	class:CPUBase	file:
 __print_usage	bin/perfstdio.py	/^def __print_usage():$/;"	f
 __print_usage	bin/plotter.py	/^def __print_usage():$/;"	f
+__print_usage	bin/plotter2.py	/^def __print_usage():$/;"	f
 _append_to_config	bin/run-filebench.py	/^    def _append_to_config(self, config_str):$/;"	m	class:FileBench
 _cpu_stat_start	bin/perfmon.py	/^    def _cpu_stat_start(self):$/;"	m	class:PerfMon
 _cpu_stat_stop	bin/perfmon.py	/^    def _cpu_stat_stop(self):$/;"	m	class:PerfMon
@@ -183,14 +187,20 @@ _exec_cmd	bin/perfstdio.py	/^    def _exec_cmd(self, cmd, out=subprocess.STDOUT)
 _exec_cmd	bin/run-dbench.py	/^    def _exec_cmd(self, cmd, out=None):$/;"	m	class:DBench
 _exec_cmd	bin/run-filebench.py	/^    def _exec_cmd(self, cmd, out=None):$/;"	m	class:FileBench
 _gen_cmpdev_for_bench	bin/plotter.py	/^    def _gen_cmpdev_for_bench(self, ncore, bench):$/;"	m	class:Plotter
+_gen_cmpdev_for_bench	bin/plotter2.py	/^    def _gen_cmpdev_for_bench(self, ncore, bench):$/;"	m	class:Plotter
 _gen_log_info	bin/plotter.py	/^    def _gen_log_info(self):$/;"	m	class:Plotter
+_gen_log_info	bin/plotter2.py	/^    def _gen_log_info(self):$/;"	m	class:Plotter
 _gen_pdf	bin/plotter.py	/^    def _gen_pdf(self, gp_file):$/;"	m	class:Plotter
+_gen_pdf	bin/plotter2.py	/^    def _gen_pdf(self, gp_file):$/;"	m	class:Plotter
 _get_callee	bin/kibt.py	/^    def _get_callee(self, asm_line):$/;"	m	class:KernelBackTrace
 _get_config	bin/plotter.py	/^    def _get_config(self):$/;"	m	class:Plotter
+_get_config	bin/plotter2.py	/^    def _get_config(self):$/;"	m	class:Plotter
 _get_cpu_stat	bin/perfmon.py	/^    def _get_cpu_stat(self):$/;"	m	class:PerfMon
 _get_data_file	bin/plotter.py	/^        def _get_data_file(fs):$/;"	f	member:Plotter._plot_sc_data	file:
+_get_data_file	bin/plotter2.py	/^        def _get_data_file(fs):$/;"	f	member:Plotter._plot_sc_data	file:
 _get_file_asm	bin/kibt.py	/^    def _get_file_asm(self):$/;"	m	class:KernelBackTrace
 _get_fs_list	bin/plotter.py	/^    def _get_fs_list(self, media, bench, iomode):$/;"	m	class:Plotter
+_get_fs_list	bin/plotter2.py	/^    def _get_fs_list(self, media, bench, iomode):$/;"	m	class:Plotter
 _get_func_asm	bin/kibt.py	/^    def _get_func_asm(self, asm_file, func):$/;"	m	class:KernelBackTrace
 _get_func_name	bin/kibt.py	/^    def _get_func_name(self, asm_line):$/;"	m	class:KernelBackTrace
 _get_inlined_backtrace	bin/kibt.py	/^    def _get_inlined_backtrace(self, func_asm, callee):$/;"	m	class:KernelBackTrace
@@ -198,7 +208,9 @@ _get_inlined_callee_info	bin/kibt.py	/^    def _get_inlined_callee_info(self, as
 _get_line	bin/parser.py	/^    def _get_line(self, pn):$/;"	m	class:Parser
 _get_parse_fn	bin/parser.py	/^    def _get_parse_fn(self, l):$/;"	m	class:Parser
 _get_pdf_name	bin/plotter.py	/^    def _get_pdf_name(self):$/;"	m	class:Plotter
+_get_pdf_name	bin/plotter2.py	/^    def _get_pdf_name(self):$/;"	m	class:Plotter
 _get_sc_style	bin/plotter.py	/^        def _get_sc_style(fs):$/;"	f	member:Plotter._plot_sc_data	file:
+_get_sc_style	bin/plotter2.py	/^        def _get_sc_style(fs):$/;"	f	member:Plotter._plot_sc_data	file:
 _match_config	bin/run-fxmark.py	/^    def _match_config(self, key1, key2):$/;"	m	class:Runner
 _match_key	bin/parser.py	/^    def _match_key(self, key1, key2):$/;"	m	class:Parser
 _norm_key	bin/parser.py	/^    def _norm_key(self, ks):$/;"	m	class:Parser
@@ -220,9 +232,13 @@ _perf_stat_start	bin/perfmon.py	/^    def _perf_stat_start(self):$/;"	m	class:Pe
 _perf_stat_stop	bin/perfmon.py	/^    def _perf_stat_stop(self):$/;"	m	class:PerfMon
 _perf_stop	bin/perfmon.py	/^    def _perf_stop(self):$/;"	m	class:PerfMon
 _plot_footer	bin/plotter.py	/^    def _plot_footer(self):$/;"	m	class:Plotter
+_plot_footer	bin/plotter2.py	/^    def _plot_footer(self):$/;"	m	class:Plotter
 _plot_header	bin/plotter.py	/^    def _plot_header(self):$/;"	m	class:Plotter
+_plot_header	bin/plotter2.py	/^    def _plot_header(self):$/;"	m	class:Plotter
 _plot_sc_data	bin/plotter.py	/^    def _plot_sc_data(self, media, bench, iomode):$/;"	m	class:Plotter
+_plot_sc_data	bin/plotter2.py	/^    def _plot_sc_data(self, media, bench, iomode):$/;"	m	class:Plotter
 _plot_util_data	bin/plotter.py	/^    def _plot_util_data(self, media, ncore, bench, iomode):$/;"	m	class:Plotter
+_plot_util_data	bin/plotter2.py	/^    def _plot_util_data(self, media, ncore, bench, iomode):$/;"	m	class:Plotter
 _run_dbench	bin/run-dbench.py	/^    def _run_dbench(self):$/;"	m	class:DBench
 _run_filebench	bin/run-filebench.py	/^    def _run_filebench(self):$/;"	m	class:FileBench
 _sh	bin/kibt.py	/^    def _sh(self, cmd, out=None, err=None, verbose=False):$/;"	m	class:KernelBackTrace
@@ -307,6 +323,7 @@ fxmark	bin/run-fxmark.py	/^    def fxmark(self, media, fs, bench, ncore, nfg, nb
 fxmark_cleanup	bin/run-fxmark.py	/^    def fxmark_cleanup(self):$/;"	m	class:Runner
 fxmark_env	bin/run-fxmark.py	/^    def fxmark_env(self):$/;"	m	class:Runner
 gen_cmpdev	bin/plotter.py	/^    def gen_cmpdev(self, ncore, out_dir):$/;"	m	class:Plotter
+gen_cmpdev	bin/plotter2.py	/^    def gen_cmpdev(self, ncore, out_dir):$/;"	m	class:Plotter
 gen_config	bin/run-fxmark.py	/^    def gen_config(self):$/;"	m	class:Runner
 gen_in_c	bin/gen_corepolicy	/^def gen_in_c(): $/;"	f
 gen_in_py	bin/gen_corepolicy	/^def gen_in_py(): $/;"	f
@@ -420,6 +437,7 @@ parser	bin/kibt.py	/^    parser = optparse.OptionParser()$/;"	v
 parser	bin/list-cpus	/^parser = optparse.OptionParser("usage: %prog [options] <sorters and filters...>")$/;"	v
 parser	bin/perfstdio.py	/^    parser = optparse.OptionParser()$/;"	v
 parser	bin/plotter.py	/^    parser = optparse.OptionParser()$/;"	v
+parser	bin/plotter2.py	/^    parser = optparse.OptionParser()$/;"	v
 parser	bin/run-dbench.py	/^    parser = optparse.OptionParser()$/;"	v
 parser	bin/run-filebench.py	/^    parser = optparse.OptionParser()$/;"	v
 parser	bin/set-cpus	/^parser = optparse.OptionParser("usage: %prog [options] <sorters and filters...>")$/;"	v
@@ -435,8 +453,11 @@ physical_id	bin/cpu-sequences	/^    physical_id = cpu["physical id"]$/;"	v
 physical_id_set	bin/cpu-sequences	/^physical_id_set = set()$/;"	v
 physical_ids	bin/cpu-sequences	/^physical_ids = list(physical_id_set)$/;"	v
 plot_sc	bin/plotter.py	/^    def plot_sc(self, out_dir):$/;"	m	class:Plotter
+plot_sc	bin/plotter2.py	/^    def plot_sc(self, out_dir):$/;"	m	class:Plotter
 plot_util	bin/plotter.py	/^    def plot_util(self, ncore, out_dir):$/;"	m	class:Plotter
+plot_util	bin/plotter2.py	/^    def plot_util(self, ncore, out_dir):$/;"	m	class:Plotter
 plotter	bin/plotter.py	/^    plotter = Plotter(opts.log)$/;"	v
+plotter	bin/plotter2.py	/^    plotter = Plotter(opts.log)$/;"	v
 post_work	bin/run-fxmark.py	/^    def post_work(self):$/;"	m	class:Runner
 post_work	src/bench.h	/^	int (*post_work)(struct worker*);$/;"	m	struct:bench_operations	typeref:typename:int (*)(struct worker *)
 pre_work	bin/run-fxmark.py	/^    def pre_work(self):$/;"	m	class:Runner
@@ -599,6 +620,7 @@ usec	src/bench.c	/^static uint64_t usec(void)$/;"	f	typeref:typename:uint64_t	fi
 usecs	src/bench.h	/^	volatile uint64_t usecs;$/;"	m	struct:worker	typeref:typename:volatile uint64_t
 val	bin/kibt.py	/^        val = getattr(opts, opt)$/;"	v
 val	bin/plotter.py	/^        val = getattr(opts, opt)$/;"	v
+val	bin/plotter2.py	/^        val = getattr(opts, opt)$/;"	v
 val	bin/run-dbench.py	/^        val = getattr(opts, opt)$/;"	v
 val	bin/run-filebench.py	/^        val = getattr(opts, opt)$/;"	v
 value	bin/set-cpus	/^        field, value = arg.split(op, 1)$/;"	v
