@@ -188,51 +188,101 @@ void run_bench(struct bench *bench)
 
 void report_bench(struct bench *bench, FILE *out)
 {
-	static char *empty_str = "";
-        uint64_t total_usecs = 0;
-        double   total_works = 0.0;
-        double   avg_secs;
-	char *profile_name, *profile_data;
-        int i, n_fg_cpu;
+    static char *empty_str = "";
+    uint64_t total_usecs = 0;
+    uint64_t fg_usecs = 0;
+    uint64_t bg_usecs = 0;
 
-        /* if report_bench is overloaded */ 
-        if (bench->ops.report_bench) {
-                bench->ops.report_bench(bench, out);
-                return;
+    double total_works = 0.0;
+    double fg_works = 0.0;
+    double bg_works = 0.0;
+
+    double total_secs = 0.0;
+    double fg_secs = 0.0;
+    double bg_secs = 0.0;
+
+    char *profile_name, *profile_data;
+    int i, n_fg_cpu, n_bg_cpu;
+
+    /* if report_bench is overloaded */
+    if (bench->ops.report_bench) {
+        bench->ops.report_bench(bench, out);
+        return;
+    }
+
+    n_fg_cpu = bench->ncpu - bench->nbg;
+    n_bg_cpu = bench->nbg;
+
+    /* default report_bench impl. */
+    for (i = 0; i < bench->ncpu; ++i) {
+        struct worker *w = &bench->workers[i];
+
+        total_usecs += w->usecs;
+        total_works += w->works;
+
+        if (w->is_bg) {
+            bg_usecs += w->usecs;
+            bg_works += w->works;
+        } else {
+            fg_usecs += w->usecs;
+            fg_works += w->works;
         }
+    }
 
-        /* default report_bench impl. */
-        for (i = 0; i < bench->ncpu; ++i) {
-                struct worker *w = &bench->workers[i];
-		if (w->is_bg) continue;
-                total_usecs += w->usecs;
-                total_works += w->works;
+    if (bench->ncpu > 0)
+        total_secs = (double)total_usecs / (double)bench->ncpu / 1000000.0;
+
+    if (n_fg_cpu > 0)
+        fg_secs = (double)fg_usecs / (double)n_fg_cpu / 1000000.0;
+
+    if (n_bg_cpu > 0)
+        bg_secs = (double)bg_usecs / (double)n_bg_cpu / 1000000.0;
+
+    /* get profiling result */
+    profile_name = profile_data = empty_str;
+    if (bench->profile_stat_file[0]) {
+        FILE *fp = fopen(bench->profile_stat_file, "r");
+        size_t len;
+
+        if (fp) {
+            profile_name = profile_data = NULL;
+            getline(&profile_name, &len, fp);
+            getline(&profile_data, &len, fp);
+            fclose(fp);
         }
-	n_fg_cpu = bench->ncpu - bench->nbg;
-        avg_secs = (double)total_usecs/(double)n_fg_cpu/1000000.0;
+    }
 
-	/* get profiling result */ 
-	profile_name = profile_data = empty_str;
-	if (bench->profile_stat_file[0]) {
-		FILE *fp = fopen(bench->profile_stat_file, "r");
-		size_t len;
-		
-		if (fp) {
-			profile_name = profile_data = NULL;
-			getline(&profile_name, &len, fp);
-			getline(&profile_data, &len, fp);
-			fclose(fp);
-		}
-	}
+    fprintf(out,
+            "# ncpu nfg nbg "
+            "fg_secs fg_works fg_works/sec "
+            "bg_secs bg_works bg_works/sec "
+            "total_secs total_works total_works/sec %s\n",
+            profile_name);
 
-        fprintf(out, "# ncpu secs works works/sec %s\n", profile_name);
-        fprintf(out, "%d %f %f %f %s\n", 
-                n_fg_cpu, avg_secs, total_works, total_works/avg_secs, profile_data);
+    fprintf(out,
+            "%d %d %d "
+            "%f %f %f "
+            "%f %f %f "
+            "%f %f %f %s\n",
+            bench->ncpu,
+            n_fg_cpu,
+            n_bg_cpu,
+            fg_secs,
+            fg_works,
+            (fg_secs > 0.0) ? fg_works / fg_secs : 0.0,
+            bg_secs,
+            bg_works,
+            (bg_secs > 0.0) ? bg_works / bg_secs : 0.0,
+            total_secs,
+            total_works,
+            (total_secs > 0.0) ? total_works / total_secs : 0.0,
+            profile_data);
 
-	if (profile_name != empty_str)
-		free(profile_name);
-	if (profile_data != empty_str)
-		free(profile_data);
+    if (profile_name != empty_str)
+        free(profile_name);
+    if (profile_data != empty_str)
+        free(profile_data);
 }
+
 
 #pragma GCC diagnostic pop

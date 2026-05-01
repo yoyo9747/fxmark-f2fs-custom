@@ -38,7 +38,7 @@ static struct bench_desc bench_table[] = {
 	 &n_file_rd_ops},
 	{"DRBL_bg",
 	 "file read with a background writer",
-	 &n_file_rd_ops},
+	 &n_file_rd_bg_ops},
     {"DRBM",
 	 "shared file read: each process reads its private region of the shared file",
 	 &n_shfile_rd_ops},
